@@ -10,7 +10,7 @@ use std::io::Write;
 use std::path::{Path, PathBuf};
 use std::process::{Command, Stdio};
 
-const ELM_CLI_SRC: Dir = include_dir!("/home/folkertdev/elm/elm-benchmark-cli/src");
+const ELM_CLI_SRC: Dir = include_dir!("../elm-benchmark-cli/src");
 
 fn unpack_included_dir(root: &Path, dir: Dir) {
     for file in dir.files() {
