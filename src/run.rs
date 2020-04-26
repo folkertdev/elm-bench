@@ -2,12 +2,31 @@
 
 use crate::elm_json::{Config, Dependencies};
 use glob::glob;
+use include_dir::{include_dir, Dir};
 use std::collections::HashSet;
 use std::convert::TryFrom;
 use std::ffi::OsStr;
 use std::io::Write;
 use std::path::{Path, PathBuf};
 use std::process::{Command, Stdio};
+
+const ELM_CLI_SRC: Dir = include_dir!("/home/folkertdev/elm/elm-benchmark-cli/src");
+
+fn unpack_included_dir(root: &Path, dir: Dir) {
+    for file in dir.files() {
+        let output = root.join(file.path);
+        std::fs::File::create(output)
+            .expect("Unable to create generated file")
+            .write_all(file.contents())
+            .expect("Unable to write to generated file");
+    }
+
+    for subdir in dir.dirs() {
+        let output = root.join(subdir.path);
+        std::fs::create_dir_all(output);
+        unpack_included_dir(root, *subdir)
+    }
+}
 
 #[derive(Debug)]
 /// Options passed as arguments.
@@ -63,8 +82,8 @@ pub fn main(options: Options) {
     let module_globs = if options.files.is_empty() {
         let root_string = &elm_project_root.to_str().unwrap().to_string();
         vec![
-            format!("{}/{}", root_string, "tests/*.elm"),
-            format!("{}/{}", root_string, "tests/**/*.elm"),
+            format!("{}/{}", root_string, "benchmarks/*.elm"),
+            format!("{}/{}", root_string, "benchmarks/**/*.elm"),
         ]
     } else {
         options.files
@@ -100,22 +119,25 @@ pub fn main(options: Options) {
     };
 
     // Make src dirs relative to the generated tests root
-    let tests_root = elm_project_root.join("elm-stuff/tests-0.19.1");
+    let benchmarks_root = elm_project_root.join("elm-stuff/benchmarks-0.19.1");
     let mut source_directories: Vec<PathBuf> = elm_json_tests
         .source_directories
         .iter()
         // Add tests/ to the list of source directories
-        .chain(std::iter::once(&"tests".to_string()))
+        .chain(std::iter::once(&"benchmarks".to_string()))
         // Get canonical form
-        .map(|path| elm_project_root.join(path).canonicalize().unwrap())
-        // Get path relative to tests_root
-        .map(|path| pathdiff::diff_paths(&path, &tests_root).expect("Could not get relative path"))
+        .map(|path| match elm_project_root.join(path).canonicalize() {
+            Ok(v) => v,
+            Err(e) => panic!("error {:?} {:?}", e, elm_project_root.join(path)),
+        })
+        // Get path relative to benchmarks_root
+        .map(|path| {
+            pathdiff::diff_paths(&path, &benchmarks_root).expect("Could not get relative path")
+        })
         .collect();
 
     // Add src/ and elm-test-rs/elm/src/ to the source directories
-    let elm_test_rs_root = crate::utils::elm_test_rs_root().unwrap();
     source_directories.push(Path::new("src").into());
-    source_directories.push(elm_test_rs_root.join("elm/src"));
     elm_json_tests.source_directories = source_directories
         .iter()
         .map(|path| path.to_str().unwrap().to_string())
@@ -125,11 +147,11 @@ pub fn main(options: Options) {
     elm_json_tests.promote_test_dependencies();
 
     // Write the elm.json file to disk
-    let elm_json_tests_path = tests_root.join("elm.json");
-    std::fs::create_dir_all(&tests_root.join("src")).expect("Could not create tests dir");
+    let elm_json_tests_path = benchmarks_root.join("elm.json");
+    std::fs::create_dir_all(&benchmarks_root.join("src")).expect("Could not create tests dir");
     std::fs::File::create(&elm_json_tests_path)
         .expect("Unable to create generated elm.json")
-        .write_all(miniserde::json::to_string(&elm_json_tests).as_bytes())
+        .write_all(serde_json::to_string(&elm_json_tests).unwrap().as_bytes())
         .expect("Unable to write to generated elm.json");
 
     // Finish preparing the elm.json file by solving any dependency issue (use elm-json)
@@ -140,10 +162,7 @@ pub fn main(options: Options) {
         .arg("--extra")
         .arg("elm/core")
         .arg("elm/json")
-        .arg("elm/time")
-        .arg("elm/random")
-        .arg("billstclair/elm-xml-eeue56")
-        .arg("jorgengranseth/elm-string-format")
+        .arg("BrianHicks/elm-trend")
         .arg("--")
         .arg(&elm_json_tests_path)
         // stdio config
@@ -153,18 +172,18 @@ pub fn main(options: Options) {
         .output()
         .expect("command failed to start");
     let solved_dependencies: Dependencies =
-        miniserde::json::from_str(std::str::from_utf8(&output.stdout).unwrap())
+        serde_json::from_str(std::str::from_utf8(&output.stdout).unwrap())
             .expect("Wrongly formed dependencies");
     elm_json_tests.dependencies = solved_dependencies;
     std::fs::File::create(&elm_json_tests_path)
         .expect("Unable to create generated elm.json")
-        .write_all(miniserde::json::to_string(&elm_json_tests).as_bytes())
+        .write_all(serde_json::to_string(&elm_json_tests).unwrap().as_bytes())
         .expect("Unable to write to generated elm.json");
 
     // Compile all test files
     eprintln!("Compiling all test files ...");
     compile(
-        &tests_root,                        // current_dir
+        &benchmarks_root,                   // current_dir
         &options.compiler,                  // compiler
         &Path::new("/dev/null").to_owned(), // output
         module_paths.iter(),                // src
@@ -172,7 +191,7 @@ pub fn main(options: Options) {
 
     // Find all modules and tests
     eprintln!("Finding all modules and tests ...");
-    let all_modules_and_tests = crate::elmi::all_tests(&tests_root, &module_paths).unwrap();
+    let all_modules_and_tests = crate::elmi::all_tests(&benchmarks_root, &module_paths).unwrap();
     let runner_imports: Vec<String> = all_modules_and_tests
         .iter()
         .map(|m| "import ".to_string() + &m.module_name)
@@ -186,75 +205,87 @@ pub fn main(options: Options) {
                 .map(move |test| module.module_name.clone() + "." + test)
                 .collect();
             format!(
-                r#"Test.describe "{}" [ {} ]"#,
+                r#"Benchmark.describe "{}" [ {} ]"#,
                 &module.module_name,
                 full_module_tests.join(", ")
             )
         })
         .collect();
 
-    // Generate templated src/Runner.elm
-    create_templated(
-        elm_test_rs_root.join("templates/Runner.elm"), // template
-        tests_root.join("src/Runner.elm"),             // output
+    // Generate templated src/BenchmarkRunner.elm
+    create_templated2(
+        include_str!("../templates/BenchmarkRunner.elm"),
+        benchmarks_root.join("src/BenchmarkRunner.elm"), // output
         vec![
             ("user_imports".to_string(), runner_imports.join("\n")),
             ("tests".to_string(), runner_tests.join("\n    , ")),
         ],
     );
 
+    // write all the included cli generator files
+    unpack_included_dir(&benchmarks_root.join("src"), ELM_CLI_SRC);
+
     // Compile the src/Runner.elm file into Runner.elm.js
-    eprintln!("Compiling the generated templated src/Runner.elm ...");
-    let compiled_elm_file = tests_root.join("js/Runner.elm.js");
+    eprintln!("Compiling the generated templated src/benchmarkRunner.elm ...");
+    let compiled_elm_file = benchmarks_root.join("js/Runner.elm.js");
     compile(
-        &tests_root,         // current_dir
-        &options.compiler,   // compiler
-        &compiled_elm_file,  // output
-        &["src/Runner.elm"], // src
+        &benchmarks_root,             // current_dir
+        &options.compiler,            // compiler
+        &compiled_elm_file,           // output
+        &["src/BenchmarkRunner.elm"], // src
     );
 
+    /* this is likely not needed? unless you benchmark html generation?
     // Generate the node_runner.js node module embedding the Elm runner
     let polyfills = std::fs::read_to_string(&elm_test_rs_root.join("templates/node_polyfills.js"))
         .expect("polyfills.js template missing");
-    let node_runner_path = tests_root.join("js/node_runner.js");
-    create_templated(
-        elm_test_rs_root.join("templates/node_runner.js"), // template
-        node_runner_path.clone(),                          // output
+    */
+    let node_runner_path = benchmarks_root.join("js/node_benchmark_runner.js");
+    // ("polyfills".to_string(), polyfills.clone()),
+    create_templated2(
+        include_str!("../templates/node_benchmark_runner.js"),
+        node_runner_path.clone(), // output
         vec![
-            ("polyfills".to_string(), polyfills.clone()),
+            ("polyfills".to_string(), "".to_string()),
             ("initialSeed".to_string(), options.seed.to_string()),
             ("fuzzRuns".to_string(), options.fuzz.to_string()),
         ],
     );
 
+    /* TODO we'll need an equivalent of this
     // Compile the Reporter.elm into Reporter.elm.js
     eprintln!("Compiling Reporter.elm.js ...");
-    let compiled_reporter = tests_root.join("js/Reporter.elm.js");
+    let compiled_reporter = benchmarks_root.join("js/Reporter.elm.js");
     compile(
-        &tests_root,        // current_dir
+        &benchmarks_root,   // current_dir
         &options.compiler,  // compiler
         &compiled_reporter, // output
         &[elm_test_rs_root.join("templates/Reporter.elm")],
     );
+    */
 
     // Generate the supervisor Node module
-    create_templated(
-        elm_test_rs_root.join("templates/node_supervisor.js"), // template
-        tests_root.join("js/node_supervisor.js"),              // output
+    //            ("polyfills".to_string(), polyfills),
+    //            ("reporter".to_string(), reporter),
+    /*
+    create_templated2(
+        include_str!("../templates/node_supervisor.js"),
+        benchmarks_root.join("js/node_supervisor.js"), // output
         vec![
-            ("polyfills".to_string(), polyfills),
+            ("polyfills".to_string(), "".to_string()),
             ("nb_workers".to_string(), options.workers.to_string()),
             ("initialSeed".to_string(), options.seed.to_string()),
             ("fuzzRuns".to_string(), options.fuzz.to_string()),
-            ("reporter".to_string(), reporter),
+            ("reporter".to_string(), "".to_string()),
         ],
     );
+    */
 
     // Start the tests supervisor
     eprintln!("Starting the supervisor ...");
     let mut supervisor = Command::new("node")
-        .arg("js/node_supervisor.js")
-        .current_dir(&tests_root)
+        .arg("js/node_benchmark_runner.js")
+        .current_dir(&benchmarks_root)
         .stdin(Stdio::piped())
         .spawn()
         .expect("command failed to start");
@@ -301,6 +332,7 @@ where
 {
     let status = Command::new(compiler)
         .arg("make")
+        .arg("--optimize")
         .arg(format!("--output={}", output.as_ref().to_str().unwrap()))
         .args(src)
         .current_dir(current_dir)
@@ -316,8 +348,11 @@ where
 }
 
 /// Replace the template keys and write result to output file.
-fn create_templated<P: AsRef<Path>>(template: P, output: P, replacements: Vec<(String, String)>) {
-    let template_content = std::fs::read_to_string(template).expect("template missing");
+fn create_templated2<P: AsRef<Path>>(
+    template_content: &str,
+    output: P,
+    replacements: Vec<(String, String)>,
+) {
     let content = varj::parse(&template_content, &replacements.into_iter().collect())
         .expect("The template does not match with the replacement keys");
     std::fs::File::create(output)

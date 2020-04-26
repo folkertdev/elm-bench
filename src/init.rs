@@ -9,22 +9,26 @@ pub fn main() {
     let status = Command::new("elm-json")
         .arg("install")
         .arg("--test")
-        .arg("elm-explorations/test@1")
+        .arg("elm-explorations/benchmark@1.0.1")
         .status()
         .expect("Command elm-json failed to start");
     if !status.success() {
         eprintln!(
-            "There was an error when trying to add elm-explorations/test to your dependencies"
+            "There was an error when trying to add elm-explorations/benchmark to your dependencies"
         );
         std::process::exit(1);
     }
 
-    // Create the tests/Tests.elm template
-    std::fs::create_dir_all("tests").expect("Impossible to create directory tests/");
-    let template_path = crate::utils::elm_test_rs_root()
-        .unwrap()
-        .join("templates/Tests.elm");
-    if !Path::new("tests/Tests.elm").exists() {
-        std::fs::copy(template_path, "tests/Tests.elm").expect("Unable to copy Tests.elm template");
+    // Create the benchmarks/Benchmarks.elm template
+    std::fs::create_dir_all("benchmarks").expect("Impossible to create directory benchmarks/");
+
+    let location = Path::new("benchmarks/Benchmarks.elm");
+    if !location.exists() {
+        match std::fs::write(location, include_str!("../templates/Benchmarks.elm")) {
+            Ok(()) => {}
+            Err(e) => {
+                panic!("Unable to copy Benchmarks.elm template: {:?}", e);
+            }
+        }
     }
 }

@@ -2,7 +2,7 @@
 //! It handles serialization and deserialization with miniserde
 //! instead of serde to avoid all the dependencies and compile time.
 
-use miniserde::{json, Deserialize, Serialize};
+use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::convert::TryFrom;
 
@@ -59,12 +59,12 @@ impl TryFrom<&str> for Config {
     type Error = String;
     fn try_from(value: &str) -> Result<Self, Self::Error> {
         let project_type: ProjectType =
-            json::from_str(value).map_err(|_| "Field type is missing".to_string())?;
+            serde_json::from_str(value).map_err(|_| "Field type is missing".to_string())?;
         match project_type.type_.as_ref() {
-            "package" => json::from_str(value)
+            "package" => serde_json::from_str(value)
                 .map(Config::Package)
                 .map_err(|_| "Invalid elm.json for a package".into()),
-            "application" => json::from_str(value)
+            "application" => serde_json::from_str(value)
                 .map(Config::Application)
                 .map_err(|_| "Invalid elm.json for an application".into()),
             type_ => Err(format!("Invalid type: {}", type_)),
