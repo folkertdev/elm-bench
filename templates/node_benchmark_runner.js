@@ -10,7 +10,7 @@ function show_result(result) {
     switch (result.tag) {
         case "single": {
             console.log(result.name);
-            console.table(result.series, [ "name", "runsPerSecond", "change", "goodnessOfFit" ])
+            console.log(result.pretty);
             break;
         }
 
@@ -22,7 +22,6 @@ function show_result(result) {
 
         case "group": {
             console.log(result.name);
-            console.log("\n");
             result.group.forEach(show_result);
             break;
         }

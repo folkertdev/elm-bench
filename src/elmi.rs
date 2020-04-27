@@ -23,11 +23,11 @@ fn is_benchmark(value: &serde_json::Value) -> bool {
     false
 }
 
-/// Use elmi-to-json as a binary to extract all exposed tests
-/// from compiled .elmi files.
+/// Use elmi-to-json as a binary to extract all exposed benchmarks from compiled .elmi files.
 pub fn all_tests<P: AsRef<Path>>(
     work_dir: P,
-    src_files: &HashSet<PathBuf>,
+    prefix_filter: Option<String>,
+    _src_files: &HashSet<PathBuf>,
 ) -> Result<Vec<TestModule>, String> {
     let output = Command::new("elmi-to-json")
         .arg("--elm-version")
@@ -50,10 +50,12 @@ pub fn all_tests<P: AsRef<Path>>(
 
     let mut benchmark_modules = Vec::new();
 
+    let prefix = if let Some(v) = &prefix_filter { v } else { "" };
+
     for module in output.internals {
         let mut benchmark_values = Vec::new();
         for (name, value) in module.values.iter() {
-            if is_benchmark(&value.annotation) {
+            if name.starts_with(prefix) && is_benchmark(&value.annotation) {
                 benchmark_values.push(name.clone());
             }
         }

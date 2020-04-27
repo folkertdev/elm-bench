@@ -23,7 +23,8 @@ fn unpack_included_dir(root: &Path, dir: Dir) {
 
     for subdir in dir.dirs() {
         let output = root.join(subdir.path);
-        std::fs::create_dir_all(output);
+        std::fs::create_dir_all(output.clone())
+            .unwrap_or_else(|_| panic!("could not create directory {:?}", output));
         unpack_included_dir(root, *subdir)
     }
 }
@@ -34,9 +35,8 @@ pub struct Options {
     pub help: bool,
     pub version: bool,
     pub compiler: String,
-    pub seed: u32,
-    pub fuzz: u32,
-    pub workers: u32,
+    pub prefix: Option<String>,
+    pub no_optimize: bool,
     pub report: String,
     pub files: Vec<String>,
 }
@@ -63,14 +63,10 @@ pub fn main(options: Options) {
         return;
     }
 
-    // Verify that we are in an Elm project
-    let elm_project_root = crate::utils::elm_project_root().unwrap();
-
     // Validate reporter
     let reporter = match options.report.as_ref() {
         "console" => "console".to_string(),
         "json" => "json".to_string(),
-        "junit" => "junit".to_string(),
         value => {
             eprintln!("Wrong --report value: {}", value);
             crate::help::main();
@@ -78,10 +74,15 @@ pub fn main(options: Options) {
         }
     };
 
+    // Verify that we are in an Elm project
+    let elm_project_root = crate::utils::elm_project_root().unwrap();
+
     // benchmark source directories
     let benchmark_source_directories = if options.files.is_empty() {
         let root_string = &elm_project_root.to_str().unwrap().to_string();
 
+        // if there is an existing elm.json in the `/benchmarks` folder, try to use it
+        // to find the source directories.
         let attempt_decode_elm_json = (|| -> std::io::Result<Vec<_>> {
             // Read benchmark elm.json
             let elm_json_str =
@@ -124,8 +125,6 @@ pub fn main(options: Options) {
     } else {
         options.files
     };
-
-    dbg!(&module_globs);
 
     // Get file paths of all modules in canonical form
     let module_paths: HashSet<PathBuf> = module_globs
@@ -232,7 +231,8 @@ pub fn main(options: Options) {
 
     // Find all modules and tests
     eprintln!("Finding all modules and tests ...");
-    let all_modules_and_tests = crate::elmi::all_tests(&benchmarks_root, &module_paths).unwrap();
+    let all_modules_and_tests =
+        crate::elmi::all_tests(&benchmarks_root, options.prefix, &module_paths).unwrap();
     let runner_imports: Vec<String> = all_modules_and_tests
         .iter()
         .map(|m| "import ".to_string() + &m.module_name)
@@ -254,7 +254,7 @@ pub fn main(options: Options) {
         .collect();
 
     // Generate templated src/BenchmarkRunner.elm
-    create_templated2(
+    instantiate_template(
         include_str!("../templates/BenchmarkRunner.elm"),
         benchmarks_root.join("src/BenchmarkRunner.elm"), // output
         vec![
@@ -264,7 +264,23 @@ pub fn main(options: Options) {
     );
 
     // write all the included cli generator files
-    unpack_included_dir(&benchmarks_root.join("src"), ELM_CLI_SRC);
+    // unpack_included_dir(&benchmarks_root.join("src"), ELM_CLI_SRC);
+    std::fs::File::create(benchmarks_root.join("src/Console.elm"))
+        .expect("Unable to create generated file")
+        .write_all(include_bytes!("../elm-benchmark-cli/src/Console.elm"))
+        .expect("Unable to write to generated file");
+
+    std::fs::File::create(benchmarks_root.join("src/AsciiTable.elm"))
+        .expect("Unable to create generated file")
+        .write_all(include_bytes!("../elm-benchmark-cli/src/AsciiTable.elm"))
+        .expect("Unable to write to generated file");
+
+    std::fs::File::create(benchmarks_root.join("src/Benchmark/Runner/Node.elm"))
+        .expect("Unable to create generated file")
+        .write_all(include_bytes!(
+            "../elm-benchmark-cli/src/Benchmark/Runner/Node.elm"
+        ))
+        .expect("Unable to write to generated file");
 
     // Compile the src/Runner.elm file into Runner.elm.js
     eprintln!("Compiling the generated templated src/benchmarkRunner.elm ...");
@@ -276,53 +292,20 @@ pub fn main(options: Options) {
         &["src/BenchmarkRunner.elm"], // src
     );
 
-    /* this is likely not needed? unless you benchmark html generation?
     // Generate the node_runner.js node module embedding the Elm runner
-    let polyfills = std::fs::read_to_string(&elm_test_rs_root.join("templates/node_polyfills.js"))
-        .expect("polyfills.js template missing");
-    */
+    let polyfills = include_str!("../templates/node_polyfills.js");
+
     let node_runner_path = benchmarks_root.join("js/node_benchmark_runner.js");
-    // ("polyfills".to_string(), polyfills.clone()),
-    create_templated2(
+    instantiate_template(
         include_str!("../templates/node_benchmark_runner.js"),
         node_runner_path.clone(), // output
         vec![
-            ("polyfills".to_string(), "".to_string()),
-            ("initialSeed".to_string(), options.seed.to_string()),
-            ("fuzzRuns".to_string(), options.fuzz.to_string()),
+            ("polyfills".to_string(), polyfills.to_string()),
+            ("report".to_string(), options.report),
         ],
     );
 
-    /* TODO we'll need an equivalent of this
-    // Compile the Reporter.elm into Reporter.elm.js
-    eprintln!("Compiling Reporter.elm.js ...");
-    let compiled_reporter = benchmarks_root.join("js/Reporter.elm.js");
-    compile(
-        &benchmarks_root,   // current_dir
-        &options.compiler,  // compiler
-        &compiled_reporter, // output
-        &[elm_test_rs_root.join("templates/Reporter.elm")],
-    );
-    */
-
-    // Generate the supervisor Node module
-    //            ("polyfills".to_string(), polyfills),
-    //            ("reporter".to_string(), reporter),
-    /*
-    create_templated2(
-        include_str!("../templates/node_supervisor.js"),
-        benchmarks_root.join("js/node_supervisor.js"), // output
-        vec![
-            ("polyfills".to_string(), "".to_string()),
-            ("nb_workers".to_string(), options.workers.to_string()),
-            ("initialSeed".to_string(), options.seed.to_string()),
-            ("fuzzRuns".to_string(), options.fuzz.to_string()),
-            ("reporter".to_string(), "".to_string()),
-        ],
-    );
-    */
-
-    // Start the tests supervisor
+    // Start the benchmark runner
     eprintln!("Starting the supervisor ...");
     let mut supervisor = Command::new("node")
         .arg("js/node_benchmark_runner.js")
@@ -364,7 +347,7 @@ fn wait_child(child: &mut std::process::Child) -> Option<i32> {
     }
 }
 
-/// Compile an Elm module into a JS file (without --optimized)
+/// Compile an Elm module into a JS file
 fn compile<P, I, S>(current_dir: P, compiler: &str, output: P, src: I)
 where
     P: AsRef<Path>,
@@ -389,7 +372,7 @@ where
 }
 
 /// Replace the template keys and write result to output file.
-fn create_templated2<P: AsRef<Path>>(
+fn instantiate_template<P: AsRef<Path>>(
     template_content: &str,
     output: P,
     replacements: Vec<(String, String)>,

@@ -14,7 +14,9 @@ import Trend.Linear as Trend exposing (Quick, Trend)
 import Trend.Math
 
 
-type alias Flags = ()
+type alias Flags =
+    ()
+
 
 type alias BenchmarkProgram =
     Program Flags Model Msg
@@ -188,7 +190,13 @@ encodeReport : Reporting.Report -> Value
 encodeReport report =
     case report of
         Reporting.Single name status ->
-            encodeNameStatus name status
+            Json.Encode.object
+                (( "tag", Json.Encode.string "single" )
+                    :: ( "name", Json.Encode.string name )
+                    :: ( "name1", Json.Encode.string name )
+                    :: ( "pretty", Json.Encode.string (AsciiTable.draw AsciiTable.unicodeSingleLine (toData [ ( name, status ) ])) )
+                    :: encodeStatus status
+                )
 
         Reporting.Series name items ->
             Json.Encode.object
@@ -257,15 +265,6 @@ getTrend status =
 
         Status.Success _ trend ->
             Ok trend
-
-
-encodeNameStatus : String -> Status.Status -> Value
-encodeNameStatus name status =
-    Json.Encode.object
-        (( "tag", Json.Encode.string "single" )
-            :: ( "name", Json.Encode.string name )
-            :: encodeStatus status
-        )
 
 
 encodeStatus : Status.Status -> List ( String, Value )
