@@ -15,7 +15,12 @@ import Trend.Math
 
 
 type alias Flags =
-    ()
+    { report : String }
+
+
+type ReportFormat
+    = JsonReport
+    | ConsoleReport
 
 
 type alias BenchmarkProgram =
@@ -25,7 +30,18 @@ type alias BenchmarkProgram =
 run : (Value -> Cmd Msg) -> Benchmark.Benchmark -> BenchmarkProgram
 run emit benchmark =
     worker
-        { init = \() -> init emit benchmark
+        { init =
+            \flags ->
+                init
+                    { emit = emit
+                    , report =
+                        if flags.report == "json" then
+                            JsonReport
+
+                        else
+                            ConsoleReport
+                    }
+                    benchmark
         , update = update
         , subscriptions = always Sub.none
         }
@@ -33,6 +49,7 @@ run emit benchmark =
 
 type alias Model =
     { emit : Value -> Cmd Msg
+    , report : ReportFormat
     }
 
 
@@ -40,18 +57,17 @@ type Msg
     = Update Benchmark
 
 
-init : (Value -> Cmd Msg) -> Benchmark -> ( Model, Cmd Msg )
-init emit benchmark =
-    ( { emit = emit
-      }
+init : Model -> Benchmark -> ( Model, Cmd Msg )
+init model benchmark =
+    ( model
     , Cmd.batch
         [ if Benchmark.done benchmark then
             Cmd.none
 
           else
             stepCmd benchmark
-        , emit (running benchmark)
-        , emit (start benchmark)
+        , model.emit (running benchmark)
+        , model.emit (start benchmark)
         ]
     )
 

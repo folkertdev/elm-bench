@@ -47,9 +47,11 @@ Benchmarks should always be compiled in `--optimize` mode. Using any other mode 
 
 TODO add a big red warning when running the benchmarks without `--optimize`
 
-### `--json` (not implemented)
+### `--report`
 
-Dumps the benchmark results as a raw json value. Useful for storage or further analysis.
+Either `console` or `json`, defaults to `console`
+
+The `console` report is a formatted human-readable report of the benchmark results. `json` is a json blob useful for storage or further analysis.
 
 ## Build from source
 

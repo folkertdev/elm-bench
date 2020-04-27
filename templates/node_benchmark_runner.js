@@ -2,7 +2,9 @@
 const { Elm } = require("./Runner.elm.js");
 
 // Start the Elm app
-const flags = { };
+const flags = { 
+    report: "{{ report }}",
+};
 const app = Elm.BenchmarkRunner.init({ flags: flags });
 
 function show_result(result) {
@@ -46,7 +48,13 @@ app.ports.emit.subscribe(function(v) {
         case 'done':
             process.stderr.write(v.msg);
             process.stderr.write('\x1B[?25h\n\n');
+
+            if (flags.report === "json") {
+                console.log(JSON.stringify(v.data));
+            } else {
             show_result(v.data);
+            }
+
             process.exit(0);
     }
 });
