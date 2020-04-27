@@ -38,7 +38,7 @@ pub fn all_tests<P: AsRef<Path>>(
         .stdout(Stdio::piped())
         .stderr(Stdio::inherit())
         .output()
-        .expect("command failed to start");
+        .expect("Failed to start `elmi-to-json`. Is it installed?");
     let str_output = std::str::from_utf8(&output.stdout)
         .map_err(|_| "Output of elmi-to-json is not valid UTF-8".to_string())?;
 

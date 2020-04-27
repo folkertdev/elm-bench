@@ -166,7 +166,7 @@ pub fn main(options: Options) {
         // Get canonical form
         .map(|path| match elm_project_root.join(path).canonicalize() {
             Ok(v) => v,
-            Err(e) => panic!("error {:?} {:?}", e, elm_project_root.join(path)),
+            Err(_e) => panic!("I expect the {:?} path to exist, but it's not there. Are you running elm-bench from the root of your project (similar to elm-test)?", elm_project_root.join(path)),
         })
         // Get path relative to benchmarks_root
         .map(|path| {
@@ -270,15 +270,18 @@ pub fn main(options: Options) {
     std::fs::File::create(benchmarks_root.join("src/Console.elm"))
         .expect("Unable to create generated file")
         .write_all(include_bytes!("../elm-benchmark-cli/src/Console.elm"))
-        .expect("Unable to write to generated file");
+        .expect("Unable to write to generated file `src/Console.elm`");
 
     std::fs::File::create(benchmarks_root.join("src/AsciiTable.elm"))
         .expect("Unable to create generated file")
         .write_all(include_bytes!("../elm-benchmark-cli/src/AsciiTable.elm"))
-        .expect("Unable to write to generated file");
+        .expect("Unable to write to generated file `src/AsciiTable`");
+
+    std::fs::create_dir_all(benchmarks_root.join("src/Benchmark/Runner"))
+        .expect("Unable to create `src/Benchmark/Runner`");
 
     std::fs::File::create(benchmarks_root.join("src/Benchmark/Runner/Node.elm"))
-        .expect("Unable to create generated file")
+        .expect("Unable to create generated file `src/Benchmark/Runner/Node.elm`")
         .write_all(include_bytes!(
             "../elm-benchmark-cli/src/Benchmark/Runner/Node.elm"
         ))
