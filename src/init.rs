@@ -5,7 +5,7 @@ use std::process::Command;
 
 /// Use the elm-json binary tool to copy the behavior of the command `elm-test init`.
 pub fn main() {
-    // Install elm-explorations/test
+    // Install elm-explorations/benchmark
     let status = Command::new("elm-json")
         .arg("install")
         .arg("--test")

@@ -78,16 +78,54 @@ pub fn main(options: Options) {
         }
     };
 
-    // Default with tests in the tests/ directory
-    let module_globs = if options.files.is_empty() {
+    // benchmark source directories
+    let benchmark_source_directories = if options.files.is_empty() {
         let root_string = &elm_project_root.to_str().unwrap().to_string();
-        vec![
-            format!("{}/{}", root_string, "benchmarks/*.elm"),
-            format!("{}/{}", root_string, "benchmarks/**/*.elm"),
-        ]
+
+        let attempt_decode_elm_json = (|| -> std::io::Result<Vec<_>> {
+            // Read benchmark elm.json
+            let elm_json_str =
+                std::fs::read_to_string(elm_project_root.join("benchmarks/elm.json"))?;
+            let info = Config::try_from(elm_json_str.as_ref()).unwrap();
+
+            // Convert package elm.json to an application elm.json if needed
+            let result = match info {
+                Config::Package(_package) => vec![format!("{}/{}", root_string, "benchmarks")],
+                Config::Application(application) => {
+                    let mut result = Vec::with_capacity(application.source_directories.len() * 2);
+
+                    for s_dir in application.source_directories.iter() {
+                        result.push(format!("{}/benchmarks/{}", root_string, s_dir));
+                    }
+
+                    result
+                }
+            };
+
+            Ok(result)
+        })();
+
+        match attempt_decode_elm_json {
+            Ok(paths) => paths,
+            Err(_) => vec![format!("{}/{}", root_string, "benchmarks")],
+        }
+    } else {
+        vec![]
+    };
+
+    let module_globs = if options.files.is_empty() {
+        let mut result = Vec::new();
+        for source_dir in &benchmark_source_directories {
+            result.push(format!("{}/*.elm", source_dir));
+            result.push(format!("{}/**/*.elm", source_dir));
+        }
+
+        result
     } else {
         options.files
     };
+
+    dbg!(&module_globs);
 
     // Get file paths of all modules in canonical form
     let module_paths: HashSet<PathBuf> = module_globs
@@ -124,7 +162,7 @@ pub fn main(options: Options) {
         .source_directories
         .iter()
         // Add tests/ to the list of source directories
-        .chain(std::iter::once(&"benchmarks".to_string()))
+        .chain(benchmark_source_directories.iter())
         // Get canonical form
         .map(|path| match elm_project_root.join(path).canonicalize() {
             Ok(v) => v,
@@ -134,6 +172,9 @@ pub fn main(options: Options) {
         .map(|path| {
             pathdiff::diff_paths(&path, &benchmarks_root).expect("Could not get relative path")
         })
+        // remove duplicates
+        .collect::<HashSet<_>>()
+        .into_iter()
         .collect();
 
     // Add src/ and elm-test-rs/elm/src/ to the source directories
