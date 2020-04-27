@@ -267,6 +267,7 @@ pub fn main(options: Options) {
 
     // write all the included cli generator files
     // unpack_included_dir(&benchmarks_root.join("src"), ELM_CLI_SRC);
+    eprintln!("The benchmark root is: {:?}", &benchmarks_root);
     std::fs::File::create(benchmarks_root.join("src/Console.elm"))
         .expect("Unable to create generated file")
         .write_all(include_bytes!("../elm-benchmark-cli/src/Console.elm"))
