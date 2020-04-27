@@ -41,7 +41,7 @@ foo = Benchmark.benchmark "bar" something
 
 The benchmark is included for `--prefix=foo`, but not `--prefix=bar`
 
-### `--no-optimize` (not implemented)
+### `--no-optimize`
 
 Benchmarks should always be compiled in `--optimize` mode. Using any other mode can give wildly misleading results. Therefore, using `--optimize` is the default for `elm-bench`. If you need to e.g. use `Debug.log` in your benchmarks for debugging purposes you can pass this flag. Don't forget to turn it off though!
 

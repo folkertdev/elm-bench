@@ -6,8 +6,6 @@ mod install;
 mod run;
 mod utils;
 
-use rand::Rng;
-
 #[derive(Debug)]
 /// Type representing command line arguments.
 enum Args {
@@ -43,7 +41,7 @@ fn main_args() -> Result<Args, Box<dyn std::error::Error>> {
 /// Parse all command options and file arguments.
 /// first_arg is here in case it was mistaken for an unknown subcommand
 /// and will be prepended to the rest of free arguments.
-/// This happens for example with the command: `elm-bench /path/to/some/Module.elm`.
+/// This happens for example with the command: `elm-benca /path/to/some/Module.elm`.
 fn no_subcommand_args(
     first_arg: Option<String>,
     mut args: pico_args::Arguments,

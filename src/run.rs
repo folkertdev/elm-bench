@@ -2,7 +2,6 @@
 
 use crate::elm_json::{Config, Dependencies};
 use glob::glob;
-use include_dir::{include_dir, Dir};
 use std::collections::HashSet;
 use std::convert::TryFrom;
 use std::ffi::OsStr;
@@ -10,24 +9,26 @@ use std::io::Write;
 use std::path::{Path, PathBuf};
 use std::process::{Command, Stdio};
 
-const ELM_CLI_SRC: Dir = include_dir!("../elm-benchmark-cli/src");
+// Has some weird caching behavior?
+// use include_dir::{include_dir, Dir};
+// const ELM_CLI_SRC: Dir = include_dir!("../elm-benchmark-cli/src");
 
-fn unpack_included_dir(root: &Path, dir: Dir) {
-    for file in dir.files() {
-        let output = root.join(file.path);
-        std::fs::File::create(output)
-            .expect("Unable to create generated file")
-            .write_all(file.contents())
-            .expect("Unable to write to generated file");
-    }
-
-    for subdir in dir.dirs() {
-        let output = root.join(subdir.path);
-        std::fs::create_dir_all(output.clone())
-            .unwrap_or_else(|_| panic!("could not create directory {:?}", output));
-        unpack_included_dir(root, *subdir)
-    }
-}
+// fn unpack_included_dir(root: &Path, dir: Dir) {
+//     for file in dir.files() {
+//         let output = root.join(file.path);
+//         std::fs::File::create(output)
+//             .expect("Unable to create generated file")
+//             .write_all(file.contents())
+//             .expect("Unable to write to generated file");
+//     }
+//
+//     for subdir in dir.dirs() {
+//         let output = root.join(subdir.path);
+//         std::fs::create_dir_all(output.clone())
+//             .unwrap_or_else(|_| panic!("could not create directory {:?}", output));
+//         unpack_included_dir(root, *subdir)
+//     }
+// }
 
 #[derive(Debug)]
 /// Options passed as arguments.
@@ -64,7 +65,7 @@ pub fn main(options: Options) {
     }
 
     // Validate reporter
-    let reporter = match options.report.as_ref() {
+    let _reporter = match options.report.as_ref() {
         "console" => "console".to_string(),
         "json" => "json".to_string(),
         value => {
@@ -225,6 +226,7 @@ pub fn main(options: Options) {
     compile(
         &benchmarks_root,                   // current_dir
         &options.compiler,                  // compiler
+        options.no_optimize,                // the --optimize flag
         &Path::new("/dev/null").to_owned(), // output
         module_paths.iter(),                // src
     );
@@ -288,6 +290,7 @@ pub fn main(options: Options) {
     compile(
         &benchmarks_root,             // current_dir
         &options.compiler,            // compiler
+        options.no_optimize,          // the --optimize flag
         &compiled_elm_file,           // output
         &["src/BenchmarkRunner.elm"], // src
     );
@@ -323,6 +326,11 @@ pub fn main(options: Options) {
 
     // Send runner module path to supervisor to start the work
     eprintln!("Running tests ...");
+    if options.no_optimize {
+        println!(
+            r#"You are running benchmarks compiled without `--optimize`. Benchmark results can be very misleading without `--optimize`!"#
+        );
+    }
     let node_runner_path_string = node_runner_path.to_str().unwrap().to_string();
     writeln(&node_runner_path_string.as_bytes());
 
@@ -348,15 +356,21 @@ fn wait_child(child: &mut std::process::Child) -> Option<i32> {
 }
 
 /// Compile an Elm module into a JS file
-fn compile<P, I, S>(current_dir: P, compiler: &str, output: P, src: I)
+fn compile<P, I, S>(current_dir: P, compiler: &str, no_optimize: bool, output: P, src: I)
 where
     P: AsRef<Path>,
     I: IntoIterator<Item = S>,
     S: AsRef<OsStr>,
 {
+    let optimize = if no_optimize {
+        vec![]
+    } else {
+        vec!["--optimize"]
+    };
+
     let status = Command::new(compiler)
         .arg("make")
-        .arg("--optimize")
+        .args(optimize)
         .arg(format!("--output={}", output.as_ref().to_str().unwrap()))
         .args(src)
         .current_dir(current_dir)
