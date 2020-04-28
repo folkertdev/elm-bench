@@ -6,6 +6,8 @@ mod install;
 mod run;
 mod utils;
 
+use run::Optimize;
+
 #[derive(Debug)]
 /// Type representing command line arguments.
 enum Args {
@@ -56,7 +58,11 @@ fn no_subcommand_args(
             .opt_value_from_str("--report")?
             .unwrap_or_else(|| "console".to_string()),
         prefix: args.opt_value_from_str("--prefix")?,
-        no_optimize: args.contains("--no-optimize"),
+        optimize: if args.contains("--no-optimize") {
+            Optimize::NoOptimize
+        } else {
+            Optimize::Optimize
+        },
         files: {
             let mut files = args.free()?;
             if let Some(file) = first_arg {

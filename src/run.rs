@@ -30,6 +30,12 @@ use std::process::{Command, Stdio};
 //     }
 // }
 
+#[derive(Debug, Clone, Copy)]
+pub enum Optimize {
+    Optimize,
+    NoOptimize,
+}
+
 #[derive(Debug)]
 /// Options passed as arguments.
 pub struct Options {
@@ -37,7 +43,7 @@ pub struct Options {
     pub version: bool,
     pub compiler: String,
     pub prefix: Option<String>,
-    pub no_optimize: bool,
+    pub optimize: Optimize,
     pub report: String,
     pub files: Vec<String>,
 }
@@ -248,7 +254,7 @@ pub fn main(options: Options) {
     compile(
         &benchmarks_root,                   // current_dir
         &options.compiler,                  // compiler
-        options.no_optimize,                // the --optimize flag
+        options.optimize,                   // the --optimize flag
         &Path::new("/dev/null").to_owned(), // output
         module_paths.iter(),                // src
     );
@@ -315,7 +321,7 @@ pub fn main(options: Options) {
     compile(
         &benchmarks_root,             // current_dir
         &options.compiler,            // compiler
-        options.no_optimize,          // the --optimize flag
+        options.optimize,             // the --optimize flag
         &compiled_elm_file,           // output
         &["src/BenchmarkRunner.elm"], // src
     );
@@ -351,7 +357,7 @@ pub fn main(options: Options) {
 
     // Send runner module path to supervisor to start the work
     eprintln!("Running tests ...");
-    if options.no_optimize {
+    if let Optimize::NoOptimize = options.optimize {
         println!(
             r#"You are running benchmarks compiled without `--optimize`. Benchmark results can be very misleading without `--optimize`!"#
         );
@@ -381,21 +387,20 @@ fn wait_child(child: &mut std::process::Child) -> Option<i32> {
 }
 
 /// Compile an Elm module into a JS file
-fn compile<P, I, S>(current_dir: P, compiler: &str, no_optimize: bool, output: P, src: I)
+fn compile<P, I, S>(current_dir: P, compiler: &str, optimize: Optimize, output: P, src: I)
 where
     P: AsRef<Path>,
     I: IntoIterator<Item = S>,
     S: AsRef<OsStr>,
 {
-    let optimize = if no_optimize {
-        vec![]
-    } else {
-        vec!["--optimize"]
+    let optimize_flag = match optimize {
+        Optimize::Optimize => vec!["--optimize"],
+        Optimize::NoOptimize => vec![],
     };
 
     let status = Command::new(compiler)
         .arg("make")
-        .args(optimize)
+        .args(optimize_flag)
         .arg(format!("--output={}", output.as_ref().to_str().unwrap()))
         .args(src)
         .current_dir(current_dir)
