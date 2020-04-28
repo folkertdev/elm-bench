@@ -42,6 +42,28 @@ pub struct Options {
     pub files: Vec<String>,
 }
 
+macro_rules! create_and_write {
+    ($path:expr, $source:expr) => {
+        if let Some(parent) = $path.parent() {
+            match std::fs::create_dir_all(parent) {
+                Ok(()) => {}
+                Err(e) => panic!(
+                    "Failed to create parent path {:?} when writing the included file {:?} to location {:?}, got error {:?}",
+                    parent, $source, $path, e
+                ),
+            }
+        }
+
+        match std::fs::write($path, include_str!($source)) {
+            Ok(()) => {}
+            Err(e) => panic!(
+                "Failed to create and write included file {:?} to {:?}, got error {:?}",
+                $source, $path, e
+            ),
+        }
+    };
+}
+
 /// Main function, preparing and running the tests.
 /// It has multiple steps that can be summarized as:
 ///
@@ -268,25 +290,24 @@ pub fn main(options: Options) {
     // write all the included cli generator files
     // unpack_included_dir(&benchmarks_root.join("src"), ELM_CLI_SRC);
     eprintln!("The benchmark root is: {:?}", &benchmarks_root);
-    std::fs::File::create(benchmarks_root.join("src/Console.elm"))
-        .expect("Unable to create generated file")
-        .write_all(include_bytes!("../elm-benchmark-cli/src/Console.elm"))
-        .expect("Unable to write to generated file `src/Console.elm`");
 
-    std::fs::File::create(benchmarks_root.join("src/AsciiTable.elm"))
-        .expect("Unable to create generated file")
-        .write_all(include_bytes!("../elm-benchmark-cli/src/AsciiTable.elm"))
-        .expect("Unable to write to generated file `src/AsciiTable`");
+    create_and_write!(
+        benchmarks_root.join("src/Console.elm"),
+        "../elm-benchmark-cli/src/Console.elm"
+    );
+
+    create_and_write!(
+        benchmarks_root.join("src/AsciiTable.elm"),
+        "../elm-benchmark-cli/src/AsciiTable.elm"
+    );
 
     std::fs::create_dir_all(benchmarks_root.join("src/Benchmark/Runner"))
         .expect("Unable to create `src/Benchmark/Runner`");
 
-    std::fs::File::create(benchmarks_root.join("src/Benchmark/Runner/Node.elm"))
-        .expect("Unable to create generated file `src/Benchmark/Runner/Node.elm`")
-        .write_all(include_bytes!(
-            "../elm-benchmark-cli/src/Benchmark/Runner/Node.elm"
-        ))
-        .expect("Unable to write to generated file");
+    create_and_write!(
+        benchmarks_root.join("src/Benchmark/Runner/Node.elm"),
+        "../elm-benchmark-cli/src/Benchmark/Runner/Node.elm"
+    );
 
     // Compile the src/Runner.elm file into Runner.elm.js
     eprintln!("Compiling the generated templated src/benchmarkRunner.elm ...");
