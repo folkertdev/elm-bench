@@ -325,20 +325,32 @@ encodeError e =
 -- ASCII TABLE
 
 
-toData : List ( String, Status.Status ) -> List ( String, List String )
+toData : List ( String, Status.Status ) -> List AsciiTable.Column
 toData items =
-    items
-        |> getTrends
-        |> List.map
-            (\( name, trend, change ) ->
-                [ name
-                , String.fromInt (runsPerSecond trend)
-                , change
-                , String.fromFloat (Trend.goodnessOfFit trend)
-                ]
-            )
-        |> AsciiTable.transpose
-        |> List.map2 Tuple.pair [ "name", "runs per second", "change", "goodness of fit" ]
+    let
+        go remaining ( names, trends, changes ) =
+            case remaining of
+                [] ->
+                    [ names
+                        |> List.reverse
+                        |> AsciiTable.stringColumn "name"
+                    , trends
+                        |> List.map runsPerSecond
+                        |> List.reverse
+                        |> AsciiTable.intColumn "runs per second"
+                    , changes
+                        |> List.reverse
+                        |> AsciiTable.stringColumn "change"
+                    , trends
+                        |> List.map Trend.goodnessOfFit
+                        |> List.reverse
+                        |> AsciiTable.percentColumn "goodness of fit"
+                    ]
+
+                ( name, trend, change ) :: rest ->
+                    go rest ( name :: names, trend :: trends, change :: changes )
+    in
+    go (getTrends items) ( [], [], [] )
 
 
 

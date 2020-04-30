@@ -1,11 +1,108 @@
-module AsciiTable exposing (draw, transpose, unicodeSingleLine)
+module AsciiTable exposing (Column, draw, intColumn, percentColumn, stringColumn, transpose, unicodeSingleLine)
+
+import Console
 
 
-data =
-    [ ( "name", [ "List.foldl", "Array.foldl" ] )
-    , ( "runsPerSecond", [ "101642", "98175" ] )
-    , ( "goodnessOfFit", [ "0.999", "0.99" ] )
-    ]
+type Column
+    = Column { align : Align, name : String, values : List ( Int, String ), width : Int }
+
+
+type Align
+    = AlignRight
+    | AlignCenter
+
+
+intColumn : String -> List Int -> Column
+intColumn name rawValues =
+    let
+        splitter : String -> List String -> String
+        splitter input accum =
+            if String.length input < 3 then
+                String.join " " (input :: List.reverse accum)
+
+            else
+                splitter (String.dropRight 3 input) (String.right 3 input :: accum)
+
+        values1 =
+            List.map
+                (\v ->
+                    let
+                        asString =
+                            String.fromInt v
+                                |> (\x -> splitter x [])
+                    in
+                    ( String.length asString, Console.yellow asString )
+                )
+                rawValues
+
+        widestValue =
+            List.map Tuple.first values1
+                |> List.maximum
+                |> Maybe.withDefault 0
+
+        values2 =
+            values1
+                |> List.map (\( w, v ) -> ( w, Console.yellow (String.padLeft (widestValue - w) ' ' v) ))
+
+        width =
+            max (String.length name) widestValue
+    in
+    Column
+        { align = AlignCenter
+        , name = name
+        , values = values2
+        , width = width + 2
+        }
+
+
+stringColumn : String -> List String -> Column
+stringColumn name rawValues =
+    let
+        values =
+            List.map
+                (\asString ->
+                    ( String.length asString, asString )
+                )
+                rawValues
+
+        width =
+            (String.length name :: List.map Tuple.first values)
+                |> List.maximum
+                |> Maybe.withDefault (String.length name)
+    in
+    Column
+        { align = AlignCenter
+        , name = name
+        , values = values
+        , width = width + 2
+        }
+
+
+percentColumn : String -> List Float -> Column
+percentColumn name rawValues =
+    let
+        values =
+            List.map
+                (\v ->
+                    let
+                        asString =
+                            "0." ++ String.padRight 3 '0' (String.fromInt (round (1000 * v)))
+                    in
+                    ( String.length asString, Console.yellow asString )
+                )
+                rawValues
+
+        width =
+            (String.length name :: List.map Tuple.first values)
+                |> List.maximum
+                |> Maybe.withDefault (String.length name)
+    in
+    Column
+        { align = AlignCenter
+        , name = name
+        , values = values
+        , width = width + 2
+        }
 
 
 type alias Side =
@@ -34,16 +131,15 @@ unicodeSingleLine =
     }
 
 
-draw : Config -> List ( String, List String ) -> String
-draw config dict =
+draw : Config -> List Column -> String
+draw config columns =
     let
         withWidth =
-            addWidth dict
+            List.map (\(Column c) -> ( c.name, c.width, c.values )) columns
 
-        rows : List (List ( Int, String ))
         rows =
-            withWidth
-                |> List.map (\( _, w, vs ) -> List.map (\v -> ( w, v )) vs)
+            columns
+                |> List.map (\(Column c) -> List.map (\( width, v ) -> { hasWidth = width, wantsWidth = c.width, value = v, align = c.align }) c.values)
                 |> transpose
     in
     String.join "\n"
@@ -51,11 +147,6 @@ draw config dict =
         , String.join "\n" (List.map (drawRow config) rows)
         , drawFooter config withWidth
         ]
-
-
-addWidth : List ( String, List String ) -> List ( String, Int, List String )
-addWidth =
-    List.map (\( k, v ) -> ( k, maxWidth k v + 2, v ))
 
 
 maxWidth : String -> List String -> Int
@@ -67,7 +158,33 @@ maxWidth key values =
         |> max (String.length key)
 
 
-drawHeader : Config -> List ( String, Int, List String ) -> String
+padWithStyle : Int -> Int -> Char -> (String -> String) -> String -> String
+padWithStyle hasWidth wantsWidth char style input =
+    let
+        diff =
+            toFloat (wantsWidth - hasWidth) / 2
+
+        left =
+            Basics.floor diff
+
+        right =
+            Basics.ceiling diff
+    in
+    String.repeat left (String.fromChar char)
+        ++ style input
+        ++ String.repeat right (String.fromChar char)
+
+
+padRightWithStyle : Int -> Int -> Char -> (String -> String) -> String -> String
+padRightWithStyle hasWidth wantsWidth char style input =
+    let
+        diff =
+            wantsWidth - hasWidth
+    in
+    String.repeat diff (String.fromChar char) ++ style input
+
+
+drawHeader : Config -> List ( String, Int, a ) -> String
 drawHeader config items =
     let
         topLine =
@@ -77,7 +194,7 @@ drawHeader config items =
 
         centerLine =
             config.header.vertical
-                ++ (List.map (\( k, w, _ ) -> String.pad w ' ' k) items |> String.join config.header.vertical)
+                ++ (List.map (\( k, w, _ ) -> padWithStyle (String.length k) w ' ' Console.bold k) items |> String.join config.header.vertical)
                 ++ config.header.vertical
 
         bottomLine =
@@ -88,14 +205,26 @@ drawHeader config items =
     String.join "\n" [ topLine, centerLine, bottomLine ]
 
 
-drawRow : Config -> List ( Int, String ) -> String
+drawRow : Config -> List { hasWidth : Int, wantsWidth : Int, value : String, align : Align } -> String
 drawRow config items =
+    let
+        mapper { hasWidth, wantsWidth, value, align } =
+            case align of
+                AlignCenter ->
+                    padWithStyle hasWidth wantsWidth ' ' identity value
+
+                AlignRight ->
+                    padRightWithStyle hasWidth wantsWidth ' ' identity value
+
+        values =
+            List.map mapper items
+    in
     config.header.vertical
-        ++ (List.map (\( w, v ) -> String.pad w ' ' v) items |> String.join config.header.vertical)
+        ++ (values |> String.join config.header.vertical)
         ++ config.header.vertical
 
 
-drawFooter : Config -> List ( String, Int, List String ) -> String
+drawFooter : Config -> List ( String, Int, a ) -> String
 drawFooter config items =
     config.bottom.left
         ++ (List.map (\( _, w, _ ) -> String.repeat w config.header.horizontal) items |> String.join config.bottom.middle)
