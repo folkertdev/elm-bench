@@ -1,0 +1,964 @@
+ [Shared libraries]:
+   ticks  total  nonlib   name
+   1875   25.2%          /home/folkertdev/.config/nvm/12.16.2/bin/node
+     80    1.1%          /lib/x86_64-linux-gnu/libc-2.27.so
+      2    0.0%          [vdso]
+      1    0.0%          /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+    936   12.6%   17.1%  LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+    632    8.5%   11.5%  LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6041:19
+    430    5.8%    7.8%  LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6013:18
+    421    5.7%    7.7%  LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6190:18
+    361    4.8%    6.6%  LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:5930:19
+    361    4.8%    6.6%  LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2438:38
+    327    4.4%    6.0%  LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:5957:18
+    327    4.4%    6.0%  LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:5907:11
+    211    2.8%    3.8%  LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2463:36
+    136    1.8%    2.5%  LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6252:12
+    130    1.7%    2.4%  LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6178:18
+    115    1.5%    2.1%  LazyCompile: *_Utils_eqHelp /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:545:23
+    105    1.4%    1.9%  LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+     91    1.2%    1.7%  LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:3050:11
+     89    1.2%    1.6%  LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6248:12
+     77    1.0%    1.4%  LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6225:14
+     69    0.9%    1.3%  LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6239:14
+     49    0.7%    0.9%  LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:997:32
+     41    0.6%    0.7%  LazyCompile: *_Utils_cmp /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:605:20
+      4    0.1%    0.1%  LazyCompile: *$elm$core$List$length /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2710:38
+      2    0.0%    0.0%  LazyCompile: *A2 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:55:12
+      2    0.0%    0.0%  LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:5973:11
+      1    0.0%    0.0%  LazyCompile: *A3 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:58:12
+      1    0.0%    0.0%  LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:3825:14
+      1    0.0%    0.0%  LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:3191:13
+      1    0.0%    0.0%  LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2692:11
+
+ [C++]:
+   ticks  total  nonlib   name
+    127    1.7%    2.3%  epoll_pwait
+     67    0.9%    1.2%  __pthread_cond_signal
+     16    0.2%    0.3%  node::native_module::NativeModuleEnv::CompileFunction(v8::FunctionCallbackInfo<v8::Value> const&)
+     16    0.2%    0.3%  __lll_unlock_wake
+     13    0.2%    0.2%  v8::internal::libc_memchr(void*, int, unsigned long)
+     12    0.2%    0.2%  __libc_malloc
+     11    0.1%    0.2%  do_futex_wait.constprop.1
+     10    0.1%    0.2%  cfree
+      8    0.1%    0.1%  void node::StreamBase::JSMethod<&(int node::StreamBase::WriteString<(node::encoding)1>(v8::FunctionCallbackInfo<v8::Value> const&))>(v8::FunctionCallbackInfo<v8::Value> const&)
+      8    0.1%    0.1%  _IO_vfprintf
+      6    0.1%    0.1%  __pthread_cond_timedwait
+      6    0.1%    0.1%  __lll_lock_wait
+      5    0.1%    0.1%  __GI___pthread_mutex_unlock
+      5    0.1%    0.1%  __GI___pthread_mutex_lock
+      4    0.1%    0.1%  write
+      4    0.1%    0.1%  std::__detail::_Prime_rehash_policy::_M_next_bkt(unsigned long) const
+      4    0.1%    0.1%  node::contextify::ContextifyContext::CompileFunction(v8::FunctionCallbackInfo<v8::Value> const&)
+      2    0.0%    0.0%  node::binding::GetInternalBinding(v8::FunctionCallbackInfo<v8::Value> const&)
+      2    0.0%    0.0%  node::NodePlatform::MonotonicallyIncreasingTime()
+      2    0.0%    0.0%  getpid
+      2    0.0%    0.0%  __pthread_cond_broadcast
+      1    0.0%    0.0%  v8::internal::tracing::ScopedTracer::~ScopedTracer()
+      1    0.0%    0.0%  v8::internal::VariableProxy::VariableProxy(v8::internal::VariableProxy const*)
+      1    0.0%    0.0%  v8::internal::VariableProxy::BindTo(v8::internal::Variable*)
+      1    0.0%    0.0%  v8::internal::CompilationCache::Iterate(v8::internal::RootVisitor*)
+      1    0.0%    0.0%  v8::internal::AstValueFactory::GetOneByteStringInternal(v8::internal::Vector<unsigned char const>)
+      1    0.0%    0.0%  v8::internal::AstNode::AsIterationStatement()
+      1    0.0%    0.0%  std::ostream::sentry::~sentry()
+      1    0.0%    0.0%  std::ostream::sentry::sentry(std::ostream&)
+      1    0.0%    0.0%  std::__detail::_Prime_rehash_policy::_M_need_rehash(unsigned long, unsigned long, unsigned long) const
+      1    0.0%    0.0%  operator new(unsigned long)
+      1    0.0%    0.0%  operator delete[](void*)
+      1    0.0%    0.0%  operator delete(void*)
+      1    0.0%    0.0%  node::ReallyExit(v8::FunctionCallbackInfo<v8::Value> const&)
+      1    0.0%    0.0%  _init
+      1    0.0%    0.0%  __pthread_enable_asynccancel
+      1    0.0%    0.0%  __GI___pthread_testcancel
+      1    0.0%    0.0%  __GI___pthread_mutex_init
+      1    0.0%    0.0%  _IO_file_xsputn
+
+ [Summary]:
+   ticks  total  nonlib   name
+   4920   66.1%   89.7%  JavaScript
+    348    4.7%    6.3%  C++
+    463    6.2%    8.4%  GC
+   1958   26.3%          Shared libraries
+    219    2.9%          Unaccounted
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+     31   60.8%    0.4%  v8::internal::Builtin_HandleApiCall(int, unsigned long*, v8::internal::Isolate*)
+     13   25.5%    0.2%  v8::internal::libc_memchr(void*, int, unsigned long)
+      1    2.0%    0.0%  write
+      1    2.0%    0.0%  v8::internal::VariableProxy::BindTo(v8::internal::Variable*)
+      1    2.0%    0.0%  v8::internal::Builtin_StringPrototypeToUpperCaseIntl(int, unsigned long*, v8::internal::Isolate*)
+      1    2.0%    0.0%  v8::internal::Builtin_JsonParse(int, unsigned long*, v8::internal::Isolate*)
+      1    2.0%    0.0%  v8::internal::AstValueFactory::GetOneByteStringInternal(v8::internal::Vector<unsigned char const>)
+      1    2.0%    0.0%  v8::internal::AstNode::AsIterationStatement()
+      1    2.0%    0.0%  std::ostream::sentry::sentry(std::ostream&)
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+   1875   25.2%  /home/folkertdev/.config/nvm/12.16.2/bin/node
+    576   30.7%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+    322   55.9%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6252:12
+    321   99.7%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+    168   52.3%          LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+    168  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     81   25.2%          LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     81  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     72   22.4%          LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     72  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+    176   30.6%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6248:12
+    176  100.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+    112   63.6%          LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+    112  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     58   33.0%          LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     58  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      6    3.4%          LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      6  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     77   13.4%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+     77  100.0%        LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     77  100.0%          LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     77  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+    331   17.7%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6252:12
+    330   99.7%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+    169   51.2%        LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+    169  100.0%          LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+    169  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+     83   25.2%        LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     83  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+     83  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+     78   23.6%        LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     78  100.0%          LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     78  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+    154    8.2%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6248:12
+    152   98.7%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+    100   65.8%        LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+    100  100.0%          LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+    100  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+     48   31.6%        LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     48  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+     48  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+      4    2.6%        LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      4  100.0%          LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      4  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      2    1.3%      LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      2  100.0%        LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      2  100.0%          LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      2  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+     89    4.7%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2463:36
+     88   98.9%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:5930:19
+     88  100.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+     70   79.5%          LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6248:12
+     70  100.0%            LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+     18   20.5%          LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+     18  100.0%            LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      1    1.1%      LazyCompile: *A3 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:58:12
+      1  100.0%        LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:5973:11
+      1  100.0%          LazyCompile: ~A5 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:64:12
+      1  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6013:18
+     86    4.6%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6041:19
+     86  100.0%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+     60   69.8%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6252:12
+     60  100.0%          LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+     26   43.3%            LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     24   40.0%            LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     10   16.7%            LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     17   19.8%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6248:12
+     17  100.0%          LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      9   52.9%            LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      8   47.1%            LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      9   10.5%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      9  100.0%          LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      9  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     79    4.2%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:5930:19
+     79  100.0%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+     55   69.6%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6248:12
+     55  100.0%          LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+     28   50.9%            LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     25   45.5%            LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      2    3.6%            LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     24   30.4%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+     24  100.0%          LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     24  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     69    3.7%    /home/folkertdev/.config/nvm/12.16.2/bin/node
+      9   13.0%      LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:779:31
+      9  100.0%        LazyCompile: *A2 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:55:12
+      9  100.0%          LazyCompile: ~$elm$core$List$sort /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:3863:36
+      6   66.7%            LazyCompile: ~$BrianHicks$elm_trend$Trend$Linear$robust /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:4118:58
+      3   33.3%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:3880:11
+      3    4.3%      LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      3  100.0%        LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      3  100.0%          LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      3  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      3    4.3%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6013:18
+      3  100.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6041:19
+      3  100.0%          LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+      3  100.0%            LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6248:12
+      2    2.9%      LazyCompile: ~executeUserEntryPoint internal/modules/run_main.js:67:31
+      2  100.0%        Eval: ~<anonymous> internal/main/run_main_module.js:1:1
+      2    2.9%      LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      2  100.0%        LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      2  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      2  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+      2    2.9%      LazyCompile: ~_List_fromArray /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:724:25
+      2  100.0%        LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:779:31
+      2  100.0%          LazyCompile: *A2 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:55:12
+      2  100.0%            LazyCompile: ~$elm$core$List$sort /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:3863:36
+      2    2.9%      LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6041:19
+      2  100.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+      2  100.0%          LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+      2  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6152:11
+      2    2.9%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6252:12
+      2  100.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      1   50.0%          LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      1  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      1   50.0%          LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      1  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      2    2.9%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+      1   50.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6152:11
+      1  100.0%          LazyCompile: *A2 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:55:12
+      1  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6166:11
+      1   50.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+      1  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6152:11
+      1  100.0%            LazyCompile: *A2 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:55:12
+      2    2.9%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:5957:18
+      2  100.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6041:19
+      2  100.0%          LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+      2  100.0%            LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6252:12
+      1    1.4%      LazyCompile: ~setupTraceCategoryState internal/bootstrap/pre_execution.js:200:33
+      1  100.0%        LazyCompile: ~prepareMainThreadExecution internal/bootstrap/pre_execution.js:14:36
+      1  100.0%          Eval: ~<anonymous> internal/main/run_main_module.js:1:1
+      1    1.4%      LazyCompile: ~setupTaskQueue internal/process/task_queues.js:176:17
+      1  100.0%        Eval: ~<anonymous> internal/bootstrap/node.js:1:1
+      1    1.4%      LazyCompile: ~push internal/fixed_queue.js:75:7
+      1  100.0%        LazyCompile: ~push internal/fixed_queue.js:99:7
+      1  100.0%          LazyCompile: ~nextTick internal/process/task_queues.js:105:18
+      1  100.0%            LazyCompile: ~onwrite _stream_writable.js:470:17
+      1    1.4%      LazyCompile: ~nextTick internal/process/task_queues.js:105:18
+      1  100.0%        LazyCompile: ~onwrite _stream_writable.js:470:17
+      1  100.0%          LazyCompile: ~afterWriteDispatched internal/stream_base_commons.js:149:30
+      1  100.0%            LazyCompile: ~writeGeneric internal/stream_base_commons.js:141:22
+      1    1.4%      LazyCompile: ~insert internal/timers.js:340:16
+      1  100.0%        LazyCompile: ~setTimeout timers.js:120:20
+      1  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1840:36
+      1  100.0%            LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      1    1.4%      LazyCompile: ~getStderr internal/bootstrap/switches/is_main_thread.js:127:19
+      1  100.0%        LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/node_benchmark_runner.js:37:34
+      1  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2210:48
+      1  100.0%            LazyCompile: ~A3 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:58:12
+      1    1.4%      LazyCompile: ~_Utils_eqHelp /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:545:23
+      1  100.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6013:18
+      1  100.0%          LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6041:19
+      1  100.0%            LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+      1    1.4%      LazyCompile: ~_List_toArray /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:734:23
+      1  100.0%        LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:779:31
+      1  100.0%          LazyCompile: *A2 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:55:12
+      1  100.0%            LazyCompile: ~$elm$core$List$sort /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:3863:36
+      1    1.4%      LazyCompile: ~Socket net.js:262:16
+      1  100.0%        LazyCompile: ~WriteStream tty.js:84:21
+      1  100.0%          LazyCompile: ~createWritableStdioStream internal/bootstrap/switches/is_main_thread.js:37:35
+      1  100.0%            LazyCompile: ~getStderr internal/bootstrap/switches/is_main_thread.js:127:19
+      1    1.4%      LazyCompile: ~Module._nodeModulePaths internal/modules/cjs/loader.js:762:37
+      1  100.0%        LazyCompile: ~Module.load internal/modules/cjs/loader.js:988:33
+      1  100.0%          LazyCompile: ~Module._load internal/modules/cjs/loader.js:843:24
+      1  100.0%            LazyCompile: ~Module.require internal/modules/cjs/loader.js:1034:36
+      1    1.4%      LazyCompile: ~A5 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:64:12
+      1  100.0%        LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6013:18
+      1  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6041:19
+      1  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+      1    1.4%      LazyCompile: ~A2 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:55:12
+      1  100.0%        LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2692:11
+      1  100.0%          LazyCompile: ~A3 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:58:12
+      1  100.0%            LazyCompile: ~$elm$json$Json$Encode$object /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:3285:45
+      1    1.4%      LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6152:11
+      1  100.0%        LazyCompile: ~A2 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:55:12
+      1  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6166:11
+      1  100.0%            LazyCompile: ~A2 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:55:12
+      1    1.4%      LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+      1  100.0%        LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+      1  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6152:11
+      1  100.0%            LazyCompile: ~A2 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:55:12
+      1    1.4%      LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:5973:11
+      1  100.0%        LazyCompile: ~A5 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:64:12
+      1  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6013:18
+      1  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6041:19
+      1    1.4%      LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:5039:16
+      1  100.0%        LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:3526:13
+      1  100.0%          LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      1  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      1    1.4%      LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:4559:11
+      1  100.0%        LazyCompile: *A2 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:55:12
+      1  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:4952:11
+      1  100.0%            LazyCompile: *A3 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:58:12
+      1    1.4%      LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:3608:11
+      1  100.0%        LazyCompile: *A2 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:55:12
+      1  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:5039:16
+      1  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:3526:13
+      1    1.4%      LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:3594:11
+      1  100.0%        LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:11:49
+      1  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:3526:13
+      1  100.0%            LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      1    1.4%      LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:3249:11
+      1  100.0%        LazyCompile: *A2 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:55:12
+      1  100.0%          LazyCompile: ~$elm_explorations$benchmark$Benchmark$Reporting$fromBenchmark /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:3256:78
+      1  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:3148:14
+      1    1.4%      LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:3191:13
+      1  100.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:3162:11
+      1  100.0%          LazyCompile: *A3 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:58:12
+      1  100.0%            LazyCompile: ~$elm_explorations$benchmark$Benchmark$Samples$count /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:3186:68
+      1    1.4%      LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:3148:14
+      1  100.0%        LazyCompile: *A2 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:55:12
+      1  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:3089:11
+      1  100.0%            LazyCompile: ~A4 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:61:12
+      1    1.4%      LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2692:11
+      1  100.0%        LazyCompile: *A3 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:58:12
+      1  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:4131:16
+      1  100.0%            LazyCompile: *A2 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:55:12
+      1    1.4%      LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2015:17
+      1  100.0%        LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:3589:11
+      1  100.0%          LazyCompile: *A2 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:55:12
+      1  100.0%            LazyCompile: ~$author$project$Benchmark$Runner$Node$stepCmd /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:5091:62
+      1    1.4%      LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      1  100.0%        LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+      1  100.0%          LazyCompile: ~listOnTimeout internal/timers.js:497:25
+      1  100.0%            LazyCompile: ~processTimers internal/timers.js:477:25
+      1    1.4%      LazyCompile: *A5 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:64:12
+      1  100.0%        LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:5957:18
+      1  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6041:19
+      1  100.0%            LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+      1    1.4%      LazyCompile: *A2 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:55:12
+      1  100.0%        LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6248:12
+      1  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      1  100.0%            LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      1    1.4%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6248:12
+      1  100.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      1  100.0%          LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      1  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      1    1.4%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6190:18
+      1  100.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+      1  100.0%          LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6252:12
+      1  100.0%            LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      1    1.4%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6041:19
+      1  100.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+      1  100.0%          LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      1  100.0%            LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      1    1.4%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:5930:19
+      1  100.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+      1  100.0%          LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      1  100.0%            LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      1    1.4%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:5907:11
+      1  100.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6190:18
+      1  100.0%          LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+      1  100.0%            LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6252:12
+      1    1.4%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:3191:13
+      1  100.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:3162:11
+      1  100.0%          LazyCompile: *A3 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:58:12
+      1  100.0%            LazyCompile: ~$elm_explorations$benchmark$Benchmark$Samples$count /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:3186:68
+      1    1.4%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2692:11
+      1  100.0%        LazyCompile: *A3 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:58:12
+      1  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:3089:11
+      1  100.0%            LazyCompile: ~A4 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:61:12
+      1    1.4%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2438:38
+      1  100.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6190:18
+      1  100.0%          LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+      1  100.0%            LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6252:12
+      1    1.4%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      1  100.0%        LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      1  100.0%          LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      1  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      1    1.4%      Eval: ~<anonymous> internal/url.js:1:1
+      1  100.0%        LazyCompile: ~compileForInternalLoader internal/bootstrap/loaders.js:266:27
+      1  100.0%          LazyCompile: ~nativeModuleRequire internal/bootstrap/loaders.js:299:29
+      1  100.0%            Eval: ~<anonymous> internal/bootstrap/node.js:1:1
+      1    1.4%      Eval: ~<anonymous> internal/async_hooks.js:1:1
+      1  100.0%        LazyCompile: ~compileForInternalLoader internal/bootstrap/loaders.js:266:27
+      1  100.0%          LazyCompile: ~nativeModuleRequire internal/bootstrap/loaders.js:299:29
+      1  100.0%            Eval: ~<anonymous> internal/bootstrap/node.js:1:1
+      1    1.4%      Eval: ~<anonymous> fs.js:1:1
+      1  100.0%        LazyCompile: ~compileForInternalLoader internal/bootstrap/loaders.js:266:27
+      1  100.0%          LazyCompile: ~nativeModuleRequire internal/bootstrap/loaders.js:299:29
+      1  100.0%            Eval: ~<anonymous> internal/source_map/source_map_cache.js:1:1
+      1    1.4%      Eval: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1:10
+      1  100.0%        Eval: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1:1
+      1  100.0%          LazyCompile: ~Module._compile internal/modules/cjs/loader.js:1110:37
+      1  100.0%            LazyCompile: ~Module._extensions..js internal/modules/cjs/loader.js:1165:37
+     55    2.9%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:5957:18
+     55  100.0%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6041:19
+     55  100.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+     55  100.0%          LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6252:12
+     55  100.0%            LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+     53    2.8%    LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     53  100.0%      LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     53  100.0%        LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+     53  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+     53  100.0%            LazyCompile: ~listOnTimeout internal/timers.js:497:25
+     43    2.3%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+     43  100.0%      LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     43  100.0%        LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     43  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+     43  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+     21    1.1%    LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     21  100.0%      LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+     21  100.0%        LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+     21  100.0%          LazyCompile: ~listOnTimeout internal/timers.js:497:25
+     14   66.7%            LazyCompile: ~processTimers internal/timers.js:477:25
+      7   33.3%            LazyCompile: *processTimers internal/timers.js:477:25
+
+    936   12.6%  LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+    575   61.4%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6252:12
+    574   99.8%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+    283   49.3%        LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+    283  100.0%          LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+    283  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+    147   25.6%        LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+    147  100.0%          LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+    147  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+    144   25.1%        LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+    144  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+    144  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+    227   24.3%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6248:12
+    227  100.0%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+    138   60.8%        LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+    138  100.0%          LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+    138  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+     86   37.9%        LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     86  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+     86  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+      3    1.3%        LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      3  100.0%          LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      3  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+    120   12.8%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+     77   64.2%      LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     77  100.0%        LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     77  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+     77  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+     31   25.8%      LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     31  100.0%        LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     31  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+     31  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+     12   10.0%      LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     12  100.0%        LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+     12  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+     12  100.0%            LazyCompile: ~listOnTimeout internal/timers.js:497:25
+     13    1.4%    LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     13  100.0%      LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     13  100.0%        LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+     13  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+     13  100.0%            LazyCompile: ~listOnTimeout internal/timers.js:497:25
+
+    632    8.5%  LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6041:19
+    610   96.5%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+    293   48.0%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6252:12
+    291   99.3%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+    164   56.4%          LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+    164  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     65   22.3%          LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     65  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+     62   21.3%          LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     62  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+    179   29.3%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+    179  100.0%        LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+    179  100.0%          LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+    179  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+    138   22.6%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6248:12
+    133   96.4%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+     80   60.2%          LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     80  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     44   33.1%          LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     44  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      9    6.8%          LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      9  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      5    3.6%        LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      5  100.0%          LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      5  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      9    1.4%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6252:12
+      9  100.0%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      5   55.6%        LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      5  100.0%          LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      5  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      2   22.2%        LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      2  100.0%          LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      2  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      2   22.2%        LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      2  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      2  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+      7    1.1%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      7  100.0%      LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      7  100.0%        LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      7  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      7  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+
+    430    5.8%  LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6013:18
+    425   98.8%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6041:19
+    425  100.0%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+    425  100.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6248:12
+    425  100.0%          LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+    265   62.4%            LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+    146   34.4%            LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     14    3.3%            LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      5    1.2%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+      5  100.0%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6248:12
+      5  100.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      3   60.0%          LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      3  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      2   40.0%          LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      2  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+
+    421    5.7%  LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6190:18
+    407   96.7%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+    406   99.8%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6252:12
+    406  100.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+    206   50.7%          LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+    206  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+    113   27.8%          LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+    113  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+     87   21.4%          LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     87  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     14    3.3%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6252:12
+     14  100.0%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      7   50.0%        LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      7  100.0%          LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      7  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      4   28.6%        LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      4  100.0%          LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      4  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      3   21.4%        LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      3  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      3  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+
+    361    4.8%  LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:5930:19
+    349   96.7%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+    256   73.4%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6248:12
+    256  100.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+    163   63.7%          LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+    163  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     82   32.0%          LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     82  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+     11    4.3%          LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     11  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     92   26.4%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+     92  100.0%        LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     92  100.0%          LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     92  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+     11    3.0%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6248:12
+     11  100.0%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      7   63.6%        LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      7  100.0%          LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      7  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      4   36.4%        LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      4  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      4  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+
+    361    4.8%  LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2438:38
+    338   93.6%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6190:18
+    338  100.0%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+    337   99.7%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6252:12
+    337  100.0%          LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+    170   50.4%            LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     90   26.7%            LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     77   22.8%            LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     23    6.4%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+     23  100.0%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6252:12
+     23  100.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+     13   56.5%          LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     13  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      7   30.4%          LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      7  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      3   13.0%          LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      3  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+
+    327    4.4%  LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:5957:18
+    319   97.6%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6041:19
+    319  100.0%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+    319  100.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6252:12
+    319  100.0%          LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+    169   53.0%            LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     85   26.6%            LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     65   20.4%            LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      8    2.4%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+      8  100.0%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6252:12
+      8  100.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      6   75.0%          LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      6  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      1   12.5%          LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      1  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      1   12.5%          LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      1  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+
+    327    4.4%  LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:5907:11
+    144   44.0%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+     86   59.7%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6252:12
+     86  100.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+     42   48.8%          LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     42  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     25   29.1%          LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     25  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     19   22.1%          LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     19  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+     35   24.3%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6248:12
+     33   94.3%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+     23   69.7%          LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     23  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      8   24.2%          LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      8  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      2    6.1%          LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      2  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      2    5.7%        LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      2  100.0%          LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      2  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     23   16.0%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+     23  100.0%        LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     23  100.0%          LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     23  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+     49   15.0%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6190:18
+     49  100.0%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+     49  100.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6252:12
+     49  100.0%          LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+     27   55.1%            LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     15   30.6%            LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      7   14.3%            LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     35   10.7%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:5930:19
+     35  100.0%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+     28   80.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6248:12
+     28  100.0%          LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+     21   75.0%            LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      7   25.0%            LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      6   17.1%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      6  100.0%          LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      6  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      1    2.9%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+      1  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6152:11
+      1  100.0%            LazyCompile: *A2 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:55:12
+     28    8.6%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6178:18
+     28  100.0%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+     14   50.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6252:12
+     14  100.0%          LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      7   50.0%            LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      4   28.6%            LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      3   21.4%            LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      9   32.1%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6248:12
+      9  100.0%          LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      6   66.7%            LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      3   33.3%            LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      5   17.9%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      5  100.0%          LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      5  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     28    8.6%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6041:19
+     28  100.0%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+     19   67.9%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6252:12
+     19  100.0%          LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      9   47.4%            LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      8   42.1%            LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      2   10.5%            LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      5   17.9%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      5  100.0%          LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      5  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      4   14.3%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6248:12
+      4  100.0%          LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      3   75.0%            LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      1   25.0%            LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     16    4.9%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+     16  100.0%      LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     16  100.0%        LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     16  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+     16  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+     15    4.6%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6252:12
+     15  100.0%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      9   60.0%        LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      9  100.0%          LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      9  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      3   20.0%        LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      3  100.0%          LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      3  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      3   20.0%        LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      3  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      3  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+     12    3.7%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6248:12
+     12  100.0%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      7   58.3%        LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      7  100.0%          LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      7  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      5   41.7%        LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      5  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      5  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+
+    219    2.9%  UNKNOWN
+
+    211    2.8%  LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2463:36
+    197   93.4%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:5930:19
+    197  100.0%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+    143   72.6%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6248:12
+    143  100.0%          LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+     90   62.9%            LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     44   30.8%            LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      9    6.3%            LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     54   27.4%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+     54  100.0%          LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     54  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     14    6.6%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+      9   64.3%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6248:12
+      9  100.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      6   66.7%          LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      6  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      2   22.2%          LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      2  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      1   11.1%          LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      1  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      5   35.7%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      5  100.0%        LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      5  100.0%          LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      5  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+
+    136    1.8%  LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6252:12
+    123   90.4%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+     77   62.6%      LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     77  100.0%        LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     77  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+     77  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+     29   23.6%      LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     29  100.0%        LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     29  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+     29  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+     17   13.8%      LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     17  100.0%        LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+     17  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+     17  100.0%            LazyCompile: ~listOnTimeout internal/timers.js:497:25
+     10    7.4%    LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     10  100.0%      LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     10  100.0%        LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+     10  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+     10  100.0%            LazyCompile: ~listOnTimeout internal/timers.js:497:25
+      2    1.5%    LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      2  100.0%      LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      2  100.0%        LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+      2  100.0%          LazyCompile: ~listOnTimeout internal/timers.js:497:25
+      2  100.0%            LazyCompile: *processTimers internal/timers.js:477:25
+
+    130    1.7%  LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6178:18
+    108   83.1%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+     68   63.0%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6252:12
+     68  100.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+     30   44.1%          LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     30  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     20   29.4%          LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     20  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     18   26.5%          LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     18  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+     28   25.9%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6248:12
+     28  100.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+     16   57.1%          LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     16  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     11   39.3%          LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     11  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      1    3.6%          LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      1  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     12   11.1%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+     12  100.0%        LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     12  100.0%          LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     12  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+     12    9.2%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6252:12
+     12  100.0%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      6   50.0%        LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      6  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      6  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+      4   33.3%        LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      4  100.0%          LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      4  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      2   16.7%        LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      2  100.0%          LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      2  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      8    6.2%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6248:12
+      8  100.0%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      6   75.0%        LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      6  100.0%          LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      6  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      2   25.0%        LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      2  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      2  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+      2    1.5%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      2  100.0%      LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      2  100.0%        LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      2  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      2  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+
+    127    1.7%  epoll_pwait
+
+    115    1.5%  LazyCompile: *_Utils_eqHelp /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:545:23
+     53   46.1%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6013:18
+     53  100.0%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6041:19
+     53  100.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+     53  100.0%          LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6248:12
+     53  100.0%            LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+     34   29.6%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6041:19
+     34  100.0%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+     29   85.3%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6248:12
+     28   96.6%          LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+     19   67.9%            LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      9   32.1%            LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      1    3.4%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      1  100.0%            LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      5   14.7%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      5  100.0%          LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      5  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     28   24.3%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+     28  100.0%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+     28  100.0%        LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     28  100.0%          LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     28  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+
+    105    1.4%  LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+     53   50.5%    LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     53  100.0%      LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     53  100.0%        LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+     53  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+     53  100.0%            LazyCompile: ~listOnTimeout internal/timers.js:497:25
+     36   34.3%    LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     36  100.0%      LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     36  100.0%        LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+     36  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+     36  100.0%            LazyCompile: ~listOnTimeout internal/timers.js:497:25
+     16   15.2%    LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     16  100.0%      LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+     16  100.0%        LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+     16  100.0%          LazyCompile: ~listOnTimeout internal/timers.js:497:25
+      9   56.3%            LazyCompile: *processTimers internal/timers.js:477:25
+      7   43.8%            LazyCompile: ~processTimers internal/timers.js:477:25
+
+     91    1.2%  LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:3050:11
+     33   36.3%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+     15   45.5%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+     15  100.0%        LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     15  100.0%          LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     15  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+     13   39.4%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6252:12
+     13  100.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      8   61.5%          LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      8  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      3   23.1%          LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      3  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      2   15.4%          LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      2  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      5   15.2%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6248:12
+      4   80.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      3   75.0%          LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      3  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      1   25.0%          LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      1  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      1   20.0%        LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      1  100.0%          LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      1  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     30   33.0%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6252:12
+     30  100.0%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+     16   53.3%        LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     16  100.0%          LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     16  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+     10   33.3%        LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     10  100.0%          LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     10  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      4   13.3%        LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      4  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      4  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+     16   17.6%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6248:12
+     16  100.0%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+     13   81.3%        LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     13  100.0%          LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     13  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      2   12.5%        LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      2  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      2  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+      1    6.3%        LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      1  100.0%          LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      1  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      9    9.9%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6041:19
+      9  100.0%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+      4   44.4%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6252:12
+      4  100.0%          LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      3   75.0%            LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      1   25.0%            LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      3   33.3%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      3  100.0%          LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      3  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      2   22.2%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6248:12
+      2  100.0%          LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      2  100.0%            LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      3    3.3%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      3  100.0%      LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      3  100.0%        LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      3  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      3  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+
+     89    1.2%  LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6248:12
+     78   87.6%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+     52   66.7%      LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     52  100.0%        LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     52  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+     52  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+     25   32.1%      LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     25  100.0%        LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+     25  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+     25  100.0%            LazyCompile: ~listOnTimeout internal/timers.js:497:25
+      1    1.3%      LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      1  100.0%        LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      1  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      1  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+      9   10.1%    LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      9  100.0%      LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      9  100.0%        LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      9  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+      9  100.0%            LazyCompile: ~listOnTimeout internal/timers.js:497:25
+      1    1.1%    LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      1  100.0%      LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      1  100.0%        LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      1  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      1  100.0%            LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+      1    1.1%    LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      1  100.0%      LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1810:32
+      1  100.0%        LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1841:31
+      1  100.0%          LazyCompile: ~listOnTimeout internal/timers.js:497:25
+      1  100.0%            LazyCompile: ~processTimers internal/timers.js:477:25
+
+     80    1.1%  /lib/x86_64-linux-gnu/libc-2.27.so
+     29   36.3%    /home/folkertdev/.config/nvm/12.16.2/bin/node
+     25   86.2%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:5957:18
+     25  100.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6041:19
+     25  100.0%          LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+     25  100.0%            LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6252:12
+      2    6.9%      LazyCompile: *A2 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:55:12
+      1   50.0%        LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6252:12
+      1  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      1  100.0%            LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+      1   50.0%        LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:4095:11
+      1  100.0%          LazyCompile: *A3 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:58:12
+      1  100.0%            LazyCompile: ~$BrianHicks$elm_trend$Trend$Linear$robust /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:4118:58
+      1    3.4%      LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:3089:11
+      1  100.0%        LazyCompile: ~A4 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:61:12
+      1  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:3089:11
+      1  100.0%            LazyCompile: ~A4 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:61:12
+      1    3.4%      LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2692:11
+      1  100.0%        LazyCompile: *A3 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:58:12
+      1  100.0%          LazyCompile: ~<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:4131:16
+      1  100.0%            LazyCompile: *A2 /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:55:12
+
+     77    1.0%  LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6225:14
+     56   72.7%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:5930:19
+     56  100.0%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+     39   69.6%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6248:12
+     39  100.0%          LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+     25   64.1%            LazyCompile: *_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     11   28.2%            LazyCompile: *_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+      3    7.7%            LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     17   30.4%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+     17  100.0%          LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
+     17  100.0%            LazyCompile: ~_Scheduler_enqueue /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1774:28
+     21   27.3%    LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2463:36
+     21  100.0%      LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:5930:19
+     21  100.0%        LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6077:19
+     15   71.4%          LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:6248:12
+     15  100.0%            LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      6   28.6%          LazyCompile: *<anonymous> /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:2405:37
+      6  100.0%            LazyCompile: ~_Scheduler_step /home/folkertdev/elm/elm-markdown/elm-stuff/benchmarks-0.19.1/js/Runner.elm.js:1790:25
