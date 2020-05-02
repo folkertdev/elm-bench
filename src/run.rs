@@ -2,6 +2,7 @@
 
 use crate::elm_json::{Config, Dependencies};
 use glob::glob;
+use pretty::RcDoc;
 use std::collections::HashSet;
 use std::convert::TryFrom;
 use std::ffi::OsStr;
@@ -265,13 +266,13 @@ pub fn main(options: Options) {
 
     // Find all modules and tests
     eprintln!("Finding all modules and tests ...");
-    let all_modules_and_tests =
+    let all_benchmarks_by_module =
         crate::elmi::all_tests(&benchmarks_root, options.prefix, &module_paths).unwrap();
-    let runner_imports: Vec<String> = all_modules_and_tests
+    let runner_imports: Vec<String> = all_benchmarks_by_module
         .iter()
         .map(|m| "import ".to_string() + &m.module_name)
         .collect();
-    let runner_tests: Vec<String> = all_modules_and_tests
+    let runner_benchmarks: Vec<String> = all_benchmarks_by_module
         .iter()
         .map(|module| {
             let full_module_tests: Vec<String> = module
@@ -287,20 +288,23 @@ pub fn main(options: Options) {
         })
         .collect();
 
+    if runner_benchmarks.is_empty() {
+        eprintln!("I found no benchmarks to run!");
+        std::process::exit(1);
+    }
+
     // Generate templated src/BenchmarkRunner.elm
     instantiate_template(
         include_str!("../templates/BenchmarkRunner.elm"),
         benchmarks_root.join("src/BenchmarkRunner.elm"), // output
         vec![
             ("user_imports".to_string(), runner_imports.join("\n")),
-            ("tests".to_string(), runner_tests.join("\n    , ")),
+            ("tests".to_string(), runner_benchmarks.join("\n    , ")),
         ],
     );
 
     // write all the included cli generator files
     // unpack_included_dir(&benchmarks_root.join("src"), ELM_CLI_SRC);
-    eprintln!("The benchmark root is: {:?}", &benchmarks_root);
-
     create_and_write!(
         benchmarks_root.join("src/Console.elm"),
         "../elm-benchmark-cli/src/Console.elm"
@@ -378,7 +382,6 @@ pub fn main(options: Options) {
 
     // Wait for supervisor child process to end and terminate with same exit code
     let exit_code = wait_child(&mut supervisor);
-    eprintln!("Exited with code {:?}", exit_code);
 
     if options.node_profile {
         let process_isolate_file = Command::new("node")
@@ -390,61 +393,89 @@ pub fn main(options: Options) {
             .expect("command failed to start");
 
         let isolated = std::str::from_utf8(&process_isolate_file.stdout).unwrap();
-
         let runner = std::fs::read_to_string(benchmarks_root.join("js/Runner.elm.js")).unwrap();
-        let runner_lines = runner.lines().collect::<Vec<_>>();
+        process_v8_profile(isolated, &runner);
+    }
 
-        let segments = isolated.split("\n\n").collect::<Vec<_>>();
+    eprintln!("Exited with code {:?}", exit_code);
+    std::process::exit(exit_code.unwrap_or(1));
+}
 
-        // NOTE: the first item is some debug stuff that is printed to stderr.
-        let interesting = &segments[2][15..];
+fn process_v8_profile(isolated: &str, runner: &str) {
+    let runner_lines = runner.lines().collect::<Vec<_>>();
 
-        let mut lines = interesting.lines();
-        lines.next();
+    let segments = isolated.split("\n\n").collect::<Vec<_>>();
 
-        let process_line = |line: &str| {
-            let parts = line.split_whitespace().collect::<Vec<_>>();
+    // NOTE: the first item is some debug stuff that is printed to stderr.
+    let interesting = &segments[2][15..];
 
-            match parts.as_slice() {
-                &[_, percentage, _, "LazyCompile:", _, path] => {
-                    if percentage == "0.0%" {
-                        return;
-                    }
+    let mut rows = Vec::new();
 
-                    let line_nr: usize = path.split(":").nth(1).unwrap().parse().unwrap();
-                    let better_name = find_function_name(&runner_lines, line_nr).unwrap();
+    let mut lines = interesting.lines();
+    lines.next();
 
-                    println!("{:5} {}", percentage, better_name);
+    for line in lines {
+        let parts = line.split_whitespace().collect::<Vec<_>>();
+
+        match parts.as_slice() {
+            &[_, percentage, _, "LazyCompile:", _, path] => {
+                if percentage == "0.0%" {
+                    break;
                 }
-                &[_, percentage, _, "RegExp:", regexp] => {
-                    if percentage == "0.0%" {
-                        return;
-                    }
 
-                    println!("{:5} Regular expression {}", percentage, regexp);
-                }
-                other if other[3] == "RegExp:" => {
-                    let percentage = &other[1];
-                    let mut regexp = "".to_owned();
+                let line_nr: usize = path.split(":").nth(1).unwrap().parse().unwrap();
+                let better_name = find_function_name(&runner_lines, line_nr).unwrap();
 
-                    for p in other[4..].iter() {
-                        regexp.push_str(p);
-                    }
+                if better_name.starts_with("$author$project$") {
+                    rows.push(Row::FromProject(
+                        percentage,
+                        &better_name["$author$project$".len()..],
+                    ));
+                } else if better_name.starts_with("$") {
+                    let mut symbol_parts = better_name.split('$').skip(1);
 
-                    println!("{:5} Regular expression {}", percentage, regexp);
-                }
-                other => {
-                    println!("Could not parse this line: {:?}", other);
-                    println!("Please report an issue with the above line included");
+                    let author = symbol_parts.next().unwrap();
+                    let package_name = symbol_parts.next().unwrap();
+                    let symbol = &better_name[(author.len() + package_name.len() + 3)..];
+
+                    let from_dependency = FromDependency {
+                        author,
+                        package_name,
+                        symbol,
+                    };
+                    rows.push(Row::FromDependency(percentage, from_dependency));
+                } else {
+                    rows.push(Row::Internal(percentage, better_name));
                 }
             }
-        };
+            &[_, percentage, _, "RegExp:", regexp] => {
+                if percentage == "0.0%" {
+                    break;
+                }
 
-        for line in lines {
-            process_line(line);
+                rows.push(Row::Regex(percentage, regexp));
+            }
+            other if other[3] == "RegExp:" => {
+                let percentage = &other[1];
+
+                if percentage == &"0.0%" {
+                    break;
+                }
+
+                let before = other[1].len() + other[2].len() + other[3].len();
+                let regexp = &line[before..];
+
+                rows.push(Row::Regex(percentage, &regexp));
+            }
+            _other => rows.push(Row::Other(line)),
         }
     }
-    std::process::exit(exit_code.unwrap_or(1));
+
+    println!("\nV8 Profile Results\n");
+
+    for row in rows {
+        println!("{}", row.to_pretty(120));
+    }
 }
 
 /// Wait for child process to end
@@ -505,6 +536,54 @@ fn instantiate_template<P: AsRef<Path>>(
         .expect("Unable to write to generated file");
 }
 
+#[derive(Debug)]
+enum Row<'a> {
+    FromDependency(&'a str, FromDependency<'a>),
+    FromProject(&'a str, &'a str),
+    Regex(&'a str, &'a str),
+    Internal(&'a str, &'a str),
+    Other(&'a str),
+}
+
+#[derive(Debug)]
+struct FromDependency<'a> {
+    author: &'a str,
+    package_name: &'a str,
+    symbol: &'a str,
+}
+
+impl<'a> Row<'a> {
+    pub fn to_doc(&self) -> RcDoc<()> {
+        use Row::*;
+
+        match self {
+            FromDependency(percentage, from_dependency) => {
+                let from_dep_str = format!(
+                    "{}/{} {}",
+                    from_dependency.author, from_dependency.package_name, from_dependency.symbol
+                );
+                RcDoc::as_string(format!("{:>5}    ", percentage)).append(RcDoc::text(from_dep_str))
+            }
+            FromProject(percentage, value) => {
+                RcDoc::as_string(format!("{:>5}    ", percentage)).append(RcDoc::as_string(value))
+            }
+            Regex(percentage, value) => {
+                RcDoc::as_string(format!("{:>5}    ", percentage)).append(RcDoc::as_string(value))
+            }
+            Internal(percentage, value) => {
+                RcDoc::as_string(format!("{:>5}    ", percentage)).append(RcDoc::as_string(value))
+            }
+            Other(value) => RcDoc::as_string(value),
+        }
+    }
+
+    pub fn to_pretty(&self, width: usize) -> String {
+        let mut w = Vec::new();
+        self.to_doc().render(width, &mut w).unwrap();
+        String::from_utf8(w).unwrap()
+    }
+}
+
 fn find_function_name<'a>(lines: &[&'a str], mut line_nr: usize) -> Option<&'a str> {
     while !lines[line_nr].starts_with("var") && !lines[line_nr].starts_with("function") {
         line_nr -= 1;
@@ -522,34 +601,10 @@ mod tests {
         let input = include_str!("../tests/processed-isolate-file.txt");
 
         let runner = include_str!("../tests/Runner.elm.js");
-        let runner_lines = runner.lines().collect::<Vec<_>>();
 
-        let segments = input.split("\n\n").collect::<Vec<_>>();
+        crate::run::process_v8_profile(input, runner);
 
-        let interesting = &segments[1][15..];
-
-        let mut lines = interesting.lines();
-        lines.next();
-
-        for line in lines {
-            let mut it = line.split_whitespace();
-
-            it.next();
-            let percentage = it.next().unwrap();
-
-            it.next();
-            it.next();
-
-            it.next();
-            let path = it.next().unwrap();
-
-            let line_nr: usize = path.split(":").nth(1).unwrap().parse().unwrap();
-            let better_name = crate::run::find_function_name(&runner_lines, line_nr).unwrap();
-
-            println!(" {:5} {}", percentage, better_name);
-        }
-
-        assert_eq!(segments.len(), 0);
+        assert_eq!(1, 0);
     }
 
     #[test]

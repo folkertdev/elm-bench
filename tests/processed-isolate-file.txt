@@ -1,3 +1,5 @@
+foo bar to make things work
+
  [Shared libraries]:
    ticks  total  nonlib   name
    1875   25.2%          /home/folkertdev/.config/nvm/12.16.2/bin/node
