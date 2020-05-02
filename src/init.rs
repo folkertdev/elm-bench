@@ -3,9 +3,10 @@
 use std::path::Path;
 use std::process::Command;
 
-/// Use the elm-json binary tool to copy the behavior of the command `elm-test init`.
 pub fn main() {
     // Install elm-explorations/benchmark
+    eprintln!("Adding `elm-explorations/benchmark` to development dependencies");
+
     let status = Command::new("elm-json")
         .arg("install")
         .arg("--test")
@@ -13,10 +14,9 @@ pub fn main() {
         .status()
         .expect("Command elm-json failed to start");
     if !status.success() {
-        eprintln!(
+        panic!(
             "There was an error when trying to add elm-explorations/benchmark to your dependencies"
         );
-        std::process::exit(1);
     }
 
     // Create the benchmarks/Benchmarks.elm template
@@ -24,6 +24,7 @@ pub fn main() {
 
     let location = Path::new("benchmarks/Benchmarks.elm");
     if !location.exists() {
+        eprintln!("Creating `benchmarks/Benchmarks.elm` example file");
         match std::fs::write(location, include_str!("../templates/Benchmarks.elm")) {
             Ok(()) => {}
             Err(e) => {
@@ -31,4 +32,8 @@ pub fn main() {
             }
         }
     }
+
+    eprintln!(
+        "All done! Try running `elm-bench` to run the example in `benchmarks/Benchmarks.elm`."
+    );
 }
