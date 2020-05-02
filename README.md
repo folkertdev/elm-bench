@@ -104,7 +104,12 @@ cargo install --path .
 > NOTE: running the above command may give a warning that you need to add a folder to your PATH. 
 > Just follow the advice from that error message.
 
-The executable is now added to your PATH and should be available across your system.
+The executable is now added to your PATH and should be available across your system. You will also need `elmi-to-json` and `elm-json`:
+
+``` 
+npm install --global elm-json
+npm install --global elmi-to-json
+```
 
 
 ## Contributing
