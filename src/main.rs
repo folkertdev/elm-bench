@@ -58,6 +58,7 @@ fn no_subcommand_args(
             .opt_value_from_str("--report")?
             .unwrap_or_else(|| "console".to_string()),
         prefix: args.opt_value_from_str("--prefix")?,
+        node_profile: args.contains("--node-profile"),
         optimize: if args.contains("--no-optimize") {
             Optimize::NoOptimize
         } else {

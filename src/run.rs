@@ -46,6 +46,7 @@ pub struct Options {
     pub optimize: Optimize,
     pub report: String,
     pub files: Vec<String>,
+    pub node_profile: bool,
 }
 
 macro_rules! create_and_write {
@@ -67,6 +68,7 @@ macro_rules! create_and_write {
                 $source, $path, e
             ),
         }
+
     };
 }
 
@@ -185,7 +187,9 @@ pub fn main(options: Options) {
     };
 
     // Make src dirs relative to the generated tests root
-    let benchmarks_root = elm_project_root.join("elm-stuff/benchmarks-0.19.1");
+    let benchmarks_root = elm_project_root.join("elm-stuff/generated-code/benchmarks-0.19.1");
+    std::fs::create_dir_all(&benchmarks_root).unwrap();
+
     let mut source_directories: Vec<PathBuf> = elm_json_tests
         .source_directories
         .iter()
@@ -339,9 +343,16 @@ pub fn main(options: Options) {
         ],
     );
 
+    let make_node_profile = if options.node_profile {
+        vec!["--prof", "--no-logfile-per-isolate"]
+    } else {
+        vec![]
+    };
+
     // Start the benchmark runner
     eprintln!("Starting the supervisor ...");
     let mut supervisor = Command::new("node")
+        .args(make_node_profile)
         .arg("js/node_benchmark_runner.js")
         .current_dir(&benchmarks_root)
         .stdin(Stdio::piped())
@@ -368,6 +379,71 @@ pub fn main(options: Options) {
     // Wait for supervisor child process to end and terminate with same exit code
     let exit_code = wait_child(&mut supervisor);
     eprintln!("Exited with code {:?}", exit_code);
+
+    if options.node_profile {
+        let process_isolate_file = Command::new("node")
+            .arg("--prof-process")
+            .arg("v8.log")
+            .current_dir(&benchmarks_root)
+            .stdin(Stdio::piped())
+            .output()
+            .expect("command failed to start");
+
+        let isolated = std::str::from_utf8(&process_isolate_file.stdout).unwrap();
+
+        let runner = std::fs::read_to_string(benchmarks_root.join("js/Runner.elm.js")).unwrap();
+        let runner_lines = runner.lines().collect::<Vec<_>>();
+
+        let segments = isolated.split("\n\n").collect::<Vec<_>>();
+
+        // NOTE: the first item is some debug stuff that is printed to stderr.
+        let interesting = &segments[2][15..];
+
+        let mut lines = interesting.lines();
+        lines.next();
+
+        let process_line = |line: &str| {
+            let parts = line.split_whitespace().collect::<Vec<_>>();
+
+            match parts.as_slice() {
+                &[_, percentage, _, "LazyCompile:", _, path] => {
+                    if percentage == "0.0%" {
+                        return;
+                    }
+
+                    let line_nr: usize = path.split(":").nth(1).unwrap().parse().unwrap();
+                    let better_name = find_function_name(&runner_lines, line_nr).unwrap();
+
+                    println!("{:5} {}", percentage, better_name);
+                }
+                &[_, percentage, _, "RegExp:", regexp] => {
+                    if percentage == "0.0%" {
+                        return;
+                    }
+
+                    println!("{:5} Regular expression {}", percentage, regexp);
+                }
+                other if other[3] == "RegExp:" => {
+                    let percentage = &other[1];
+                    let mut regexp = "".to_owned();
+
+                    for p in other[4..].iter() {
+                        regexp.push_str(p);
+                    }
+
+                    println!("{:5} Regular expression {}", percentage, regexp);
+                }
+                other => {
+                    println!("Could not parse this line: {:?}", other);
+                    println!("Please report an issue with the above line included");
+                }
+            }
+        };
+
+        for line in lines {
+            process_line(line);
+        }
+    }
     std::process::exit(exit_code.unwrap_or(1));
 }
 
@@ -427,4 +503,70 @@ fn instantiate_template<P: AsRef<Path>>(
         .expect("Unable to create generated file")
         .write_all(content.as_bytes())
         .expect("Unable to write to generated file");
+}
+
+fn find_function_name<'a>(lines: &[&'a str], mut line_nr: usize) -> Option<&'a str> {
+    while !lines[line_nr].starts_with("var") && !lines[line_nr].starts_with("function") {
+        line_nr -= 1;
+    }
+
+    let pattern: &'_ [char] = &[' ', '('];
+
+    lines[line_nr].split(pattern).nth(1)
+}
+
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn slice_javascript_cost_centers() {
+        let input = include_str!("../tests/processed-isolate-file.txt");
+
+        let runner = include_str!("../tests/Runner.elm.js");
+        let runner_lines = runner.lines().collect::<Vec<_>>();
+
+        let segments = input.split("\n\n").collect::<Vec<_>>();
+
+        let interesting = &segments[1][15..];
+
+        let mut lines = interesting.lines();
+        lines.next();
+
+        for line in lines {
+            let mut it = line.split_whitespace();
+
+            it.next();
+            let percentage = it.next().unwrap();
+
+            it.next();
+            it.next();
+
+            it.next();
+            let path = it.next().unwrap();
+
+            let line_nr: usize = path.split(":").nth(1).unwrap().parse().unwrap();
+            let better_name = crate::run::find_function_name(&runner_lines, line_nr).unwrap();
+
+            println!(" {:5} {}", percentage, better_name);
+        }
+
+        assert_eq!(segments.len(), 0);
+    }
+
+    #[test]
+    fn get_elm_function_name() {
+        let input = include_str!("../tests/Runner.elm.js");
+
+        let result = crate::run::find_function_name(&input.lines().collect::<Vec<_>>(), 6077);
+
+        assert_eq!(result, Some("$elm$parser$Parser$Advanced$map2"));
+    }
+
+    #[test]
+    fn get_builtin_function_name() {
+        let input = include_str!("../tests/Runner.elm.js");
+
+        let result = crate::run::find_function_name(&input.lines().collect::<Vec<_>>(), 605);
+
+        assert_eq!(result, Some("_Utils_cmp"));
+    }
 }
