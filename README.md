@@ -27,7 +27,7 @@ elm-bench
 
 This will crawl the files in `benchmarks` for exposed `Benchmark` values, and then run the benchmarks.
 
-To build from source, see [Build from source] below.
+To build from source, see [Build from source](#build-from-source) below.
 
 ## Options
 
