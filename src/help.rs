@@ -7,13 +7,14 @@ pub fn main() {
 }
 
 const USAGE: &str = r#"
-elm-test-rs
-An alternative Elm test runner to node-test-runner
+elm-bench
+
+Run elm benchmarks on the command line
 
 USAGE:
-    elm-test-rs [<SUBCOMMAND>] [FLAGS] [TESTFILES]
+    elm-bench [<SUBCOMMAND>] [FLAGS] [TESTFILES]
     For example:
-        elm-test-rs tests/*.elm
+        elm-bench benchmarks/*.elm
 
 FLAGS:
     --help                       # Print this message and exit
@@ -21,6 +22,7 @@ FLAGS:
     --compiler /path/to/compiler # Precis the compiler to use (defaults to just elm)
     --report console|json        # Print results to stdout in given format (defaults to console)
     --prefix                     # Only run benchmarks that start with this prefix 
+    --node-profile               # Print a profile of the benchmark run  
     --no-optimize                # Allow `Debug` usage. Gives misleading benchmark results!
 
 SUBCOMMANDS:
